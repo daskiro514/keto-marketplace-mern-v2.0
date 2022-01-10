@@ -3,6 +3,7 @@ const router = express.Router()
 const config = require('config')
 const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
+const salt = bcrypt.genSaltSync(10)
 const normalize = require('normalize-url')
 
 // MODEL
