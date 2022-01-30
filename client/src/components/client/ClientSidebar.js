@@ -6,6 +6,7 @@ import { setCurrentPage } from '../../actions/admin'
 import academyImage from '../../img/icons/academy.PNG'
 import storeImage from '../../img/icons/store.PNG'
 import settingsImage from '../../img/icons/settings.PNG'
+import recipeImage from '../../img/icons/recipe.PNG'
 import logoutImage from '../../img/icons/logout.PNG'
 
 const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
@@ -43,6 +44,12 @@ const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
             <div className='d-flex align-items-center'>
               <div><img src={storeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
               <div>Store</div>
+            </div>
+          </div>
+          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'recipes' ? 'selected' : '')} onClick={() => goPage('recipes')}>
+            <div className='d-flex align-items-center'>
+              <div><img src={recipeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+              <div>Recipes</div>
             </div>
           </div>
           <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'cart' ? 'selected' : '')} onClick={() => goPage('cart')}>

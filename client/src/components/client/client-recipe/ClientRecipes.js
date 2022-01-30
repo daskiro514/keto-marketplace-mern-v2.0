@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { getRecipes, deleteRecipe } from '../../../actions/recipe'
+import { getRecipes } from '../../../actions/recipe'
+import { useHistory } from 'react-router-dom'
 
-const AdminRecipes = ({ recipes, getRecipes, baseURL, deleteRecipe }) => {
+const ClientRecipes = ({ recipes, getRecipes, baseURL }) => {
+  const history = useHistory()
 
   React.useEffect(() => {
     getRecipes()
@@ -49,12 +50,11 @@ const AdminRecipes = ({ recipes, getRecipes, baseURL, deleteRecipe }) => {
   }
 
   return (
-    <div className='admin-recipes'>
+    <div className='client-recipes'>
       <div className='row'>
         <div className='col-lg-6'>
           <div className='d-flex align-items-center pt-3'>
             <div className='font-36 mr-2'>Recipes</div>
-            <Link to='recipe-create'><i className='fa fa-plus-circle font-24 cursor-pointer pt-2'></i></Link>
           </div>
         </div>
         <div className='col-lg-6'>
@@ -96,12 +96,11 @@ const AdminRecipes = ({ recipes, getRecipes, baseURL, deleteRecipe }) => {
                     <th>Proteins</th>
                     <th>Fats</th>
                     <th>Sugar</th>
-                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {pageRecipes.map((item, index) =>
-                    <tr key={index}>
+                    <tr key={index} className='cursor-pointer' onClick={() => history.push(`/recipe/${item._id}`)}>
                       <td>{index + 1}</td>
                       <td><img alt='SETIMAGE' src={baseURL + item.image} width="80px" height="60px" /></td>
                       <td>{item.name}</td>
@@ -109,22 +108,6 @@ const AdminRecipes = ({ recipes, getRecipes, baseURL, deleteRecipe }) => {
                       <td>{item.protein}</td>
                       <td>{item.fats}</td>
                       <td>{item.sugar}</td>
-                      <td>
-                        <Link
-                          className='btn btn-sm border mx-1 width-40'
-                          to={`recipe-edit/${item._id}`}
-                        >
-                          <i className="fa fa-pencil font-18"></i>
-                        </Link>
-                        <button
-                          className='btn btn-sm border mx-1 width-40'
-                          onClick={() => {
-                            if (window.confirm('Are you sure?')) deleteRecipe(item._id)
-                          }}
-                        >
-                          <i className="fa fa-trash-o font-18"></i>
-                        </button>
-                      </td>
                     </tr>
                   )}
                 </tbody>
@@ -156,4 +139,4 @@ const mapStateToProps = state => ({
   baseURL: state.admin.baseURL
 })
 
-export default connect(mapStateToProps, { getRecipes, deleteRecipe })(AdminRecipes)
+export default connect(mapStateToProps, { getRecipes })(ClientRecipes)

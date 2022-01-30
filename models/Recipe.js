@@ -30,7 +30,8 @@ const RecipeSchema = new mongoose.Schema({
     default: null
   },
   video: {
-    type: String
+    type: String,
+    default: null,
   },
   category: {
     type: String

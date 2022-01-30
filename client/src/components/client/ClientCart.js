@@ -26,9 +26,7 @@ const ClientCart = ({ loadCartData, cartLines, baseURL, removeProductFromCart })
 
   return (
     <div className='client-cart'>
-      <div>
-        <div className='font-36 pt-3'>Cart</div>
-      </div>
+      <div className='font-36 pt-3'>Cart</div>
       <div className='row mx-1 px-2 my-3 py-3 bg-white keto-rounded-lg keto-shadow'>
         <div className='col-lg-12'>
           {cartLines.length === 0 ?

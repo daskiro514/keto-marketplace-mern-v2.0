@@ -275,6 +275,16 @@ table tbody tr td {
   min-width: 40px;
 }
 
+.width-90 {
+  min-width: 90px;
+}
+
+.width-150 {
+  min-width: 170px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .hover-keto-light:hover {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #C2C9D1;
 }
