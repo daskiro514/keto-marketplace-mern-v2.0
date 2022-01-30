@@ -11,6 +11,8 @@ import settingsImage from '../../img/icons/settings.PNG'
 import storeImage from '../../img/icons/store.PNG'
 import logoutImage from '../../img/icons/logout.PNG'
 import academyImage from '../../img/icons/academy.PNG'
+import recipeImage from '../../img/icons/recipe.PNG'
+import mealplanImage from '../../img/icons/mealplan.PNG'
 
 const AdminSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
   let history = useHistory()
@@ -47,6 +49,18 @@ const AdminSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
             <div className='d-flex align-items-center'>
               <div><img src={affiliatesImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
               <div>Affiliates</div>
+            </div>
+          </div>
+          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'recipes' ? 'selected' : '')} onClick={() => goPage('recipes')}>
+            <div className='d-flex align-items-center'>
+              <div><img src={recipeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+              <div>Recipes</div>
+            </div>
+          </div>
+          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'meal-plan' ? 'selected' : '')} onClick={() => goPage('meal-plan')}>
+            <div className='d-flex align-items-center'>
+              <div><img src={mealplanImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+              <div>Meal Plan</div>
             </div>
           </div>
           <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'categories' ? 'selected' : '')} onClick={() => goPage('categories')}>

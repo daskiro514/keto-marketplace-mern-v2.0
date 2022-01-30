@@ -18,8 +18,8 @@ const Register = ({ isAuthenticated }) => {
               <div className='row height-center'>
                 <div className='col'>
                   <div className='text-center'>
-                    <Link className='btn btn-register mx-1' to='/register/affiliate'>Affiliate Registration</Link>
-                    <Link className='btn btn-register mx-1' to='/register/client'>Customer Registration</Link>
+                    <Link className='btn btn-register m-1' to='/register/affiliate'>Affiliate Registration</Link>
+                    <Link className='btn btn-register m-1' to='/register/client'>Customer Registration</Link>
                     <Link className='btn btn-register mt-3' to='/login'>Login</Link>
                   </div>
                 </div>

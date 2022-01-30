@@ -2,14 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Chart from 'react-apexcharts'
 
-const AdminDashboard = ({ user }) => {
+const AdminDashboard = ({ user, baseURL }) => {
   const options = {
     dataLabels: {
       enabled: true
     },
     xaxis: {
       type: 'date',
-      categories: [1,2,3,4,5,6]
+      categories: [1, 2, 3, 4, 5, 6]
     },
     tooltip: {
       x: {
@@ -21,7 +21,7 @@ const AdminDashboard = ({ user }) => {
   const series = [
     {
       name: 'Monthly Sales',
-      data: [5,4,3,4,5,6]
+      data: [5, 4, 3, 4, 5, 6]
     }
   ]
 
@@ -30,6 +30,11 @@ const AdminDashboard = ({ user }) => {
       <div>
         <div className='font-36 pt-3'>Dashboard</div>
       </div>
+      {/* <div className='row'>
+        <div className='col-lg-12'>
+          <embed className='keto-rounded-lg keto-shadow' src={baseURL + "test.pdf#toolbar=0&navpanes=0&scrollbar=0"} width='100%' height='400px' ></embed>
+        </div>
+      </div> */}
       <div className='row'>
         <div className='col-lg-4'>
           <div className='p-3 bg-white keto-rounded-lg mt-3 keto-shadow'>
@@ -166,6 +171,7 @@ const AdminDashboard = ({ user }) => {
 }
 
 const mapStateToProps = state => ({
+  baseURL: state.admin.baseURL,
   user: state.auth.user
 })
 

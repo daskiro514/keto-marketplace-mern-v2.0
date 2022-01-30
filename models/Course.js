@@ -10,6 +10,9 @@ const CourseSchema = new mongoose.Schema({
   video: {
     type: String
   },
+  pdf: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now

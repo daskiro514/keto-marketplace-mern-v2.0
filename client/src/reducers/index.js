@@ -7,6 +7,7 @@ import cart from './cart'
 import course from './course'
 import stripe from './stripe'
 import order from './order'
+import recipe from './recipe'
 
 export default combineReducers({
   alert,
@@ -17,4 +18,5 @@ export default combineReducers({
   course,
   stripe,
   order,
+  recipe,
 })

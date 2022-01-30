@@ -21,6 +21,7 @@ app.use('/api/product', require('./routes/api/product'))
 app.use('/api/course', require('./routes/api/course'))
 app.use('/api/stripe', require('./routes/api/stripe'))
 app.use('/api/order', require('./routes/api/order'))
+app.use('/api/recipe', require('./routes/api/recipe'))
 
 // Serve frontend built
 app.use(express.static(__dirname + '/client/build'))
