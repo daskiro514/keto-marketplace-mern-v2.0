@@ -27,6 +27,9 @@ import AdminVAEdit from './admin-virtual-assiatants/AdminVA-Edit'
 import AdminRecipes from './admin-recipes/AdminRecipes'
 import AdminRecipeCreate from './admin-recipes/AdminRecipeCreate'
 import AdminRecipeEdit from './admin-recipes/AdminRecipeEdit'
+import AdminMealPlans from './admin-meal-plan/AdminMealPlans'
+import AdminMealPlanCreate from './admin-meal-plan/AdminMealPlanCreate'
+import AdminMealPlanEdit from './admin-meal-plan/AdminMealPlanEdit'
 
 const Admin = () => {
 
@@ -41,6 +44,9 @@ const Admin = () => {
             <PrivateRoute exact path="/recipes" component={AdminRecipes} />
             <PrivateRoute exact path="/recipe-create" component={AdminRecipeCreate} />
             <PrivateRoute exact path="/recipe-edit/:id" component={AdminRecipeEdit} />
+            <PrivateRoute exact path="/plans" component={AdminMealPlans} />
+            <PrivateRoute exact path="/plan-create" component={AdminMealPlanCreate} />
+            <PrivateRoute exact path="/plan-edit/:id" component={AdminMealPlanEdit} />
             <PrivateRoute exact path="/categories" component={AdminCategories} />
             <PrivateRoute exact path="/category-create" component={AdminCategoryCreate} />
             <PrivateRoute exact path="/category-edit/:id" component={AdminCategoryEdit} />

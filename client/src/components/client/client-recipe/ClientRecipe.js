@@ -85,15 +85,18 @@ const ClientRecipe = ({ recipe, getRecipe, match, baseURL }) => {
             </tbody>
           </table>
         </div>
+
         <div className='col-md-2'></div>
-        <div className='col-md-8 p-3'>
-          <div className='font-24 color-keto-primary text-center mb-3'>Video</div>
-          {recipe.video ?
+        {recipe.video ?
+          <div className='col-md-8 p-3'>
+            <div className='font-24 color-keto-primary text-center mb-3'>Video</div>
+
             <Vimeo
               video={recipe.video}
               responsive={true}
-            /> : null}
-        </div>
+            />
+          </div> : null
+        }
         <div className='col-md-2'></div>
       </div>
     </div>

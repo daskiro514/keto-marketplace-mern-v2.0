@@ -5,6 +5,7 @@ const router = express.Router()
 const Recipe = require('../../models/Recipe')
 const Ingredient = require('../../models/Ingredient')
 const Instruction = require('../../models/Instruction')
+const Plan = require('../../models/Plan')
 
 // FILE UPLOAD
 const fileUpload = require('../../utils/fileUpload')
@@ -53,14 +54,20 @@ router.post('/createRecipe', fileUpload.fields([{ name: 'image', maxCount: 1 }])
 router.get('/getRecipes', async (req, res) => {
   const recipes = await Recipe.find().populate(['ingredients', 'instructions'])
 
+  // const plans = await Plan.find().populate({
+  //   path: 'recipe',
+  //   populate: [{ path: 'ingredients' }, { path: 'instructions'}]
+  // })
+
   res.json({
     success: true,
-    recipes
+    recipes,
   })
 })
 
 router.get('/getRecipe/:id', async (req, res) => {
-  const recipe = await Recipe.findById(req.params.id).populate(['ingredients', 'instructions'])
+  const recipeID = req.params.id
+  const recipe = await Recipe.findById(recipeID).populate(['ingredients', 'instructions'])
 
   res.json({
     success: true,

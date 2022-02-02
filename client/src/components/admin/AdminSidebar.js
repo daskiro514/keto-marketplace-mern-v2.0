@@ -57,7 +57,7 @@ const AdminSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
               <div>Recipes</div>
             </div>
           </div>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'meal-plan' ? 'selected' : '')} onClick={() => goPage('meal-plan')}>
+          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'plans' ? 'selected' : '')} onClick={() => goPage('plans')}>
             <div className='d-flex align-items-center'>
               <div><img src={mealplanImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
               <div>Meal Plan</div>
