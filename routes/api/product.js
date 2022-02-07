@@ -28,7 +28,7 @@ router.post('/createProduct', fileUpload.fields([{ name: 'pictures' }]), async (
   })
 
   const price = await stripe.prices.create({
-    unit_amount: req.body.price * 100,
+    unit_amount: Number(req.body.price) * 100,
     currency: 'usd',
     product: product.id,
   })
@@ -37,8 +37,8 @@ router.post('/createProduct', fileUpload.fields([{ name: 'pictures' }]), async (
     name: req.body.name,
     category: req.body.category,
     vendor: req.body.vendor,
-    price: req.body.price * 100,
-    shippingFee: req.body.shippingFee * 100,
+    price: Number(req.body.price) * 100,
+    shippingFee: Number(req.body.shippingFee) * 100,
     description: req.body.description,
     pictures: pictures,
     stripeProductID: product.id,
@@ -85,7 +85,7 @@ router.post('/updateProduct/:id', fileUpload.fields([{ name: 'pictures' }]), asy
   )
 
   const price = await stripe.prices.create({
-    unit_amount: req.body.price * 100,
+    unit_amount: Number(req.body.price) * 100,
     currency: 'usd',
     product: product.stripeProductID,
   })
@@ -108,10 +108,10 @@ router.post('/updateProduct/:id', fileUpload.fields([{ name: 'pictures' }]), asy
     name: req.body.name,
     category: req.body.category,
     vendor: req.body.vendor,
-    price: req.body.price * 100,
+    price: Number(req.body.price) * 100,
     pictures: pictures,
     description: req.body.description,
-    shippingFee: req.body.shippingFee * 100,
+    shippingFee: Number(req.body.shippingFee) * 100,
     stripePriceID: price.id
   }, { new: true })
 
