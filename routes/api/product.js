@@ -42,7 +42,7 @@ router.post('/createProduct', fileUpload.fields([{ name: 'pictures' }]), async (
     description: req.body.description,
     pictures: pictures,
     stripeProductID: product.id,
-    stripePriceID: price.id,
+    stripePriceID: price.id
   })
 
   await newProduct.save()
