@@ -114,6 +114,12 @@ const AdminRecipes = ({ recipes, getRecipes, baseURL, deleteRecipe }) => {
                       <td>
                         <Link
                           className='btn btn-sm border mx-1 width-40'
+                          to={`recipe/${item._id}`}
+                        >
+                          <i className="fa fa-eye font-18"></i>
+                        </Link>
+                        <Link
+                          className='btn btn-sm border mx-1 width-40'
                           to={`recipe-edit/${item._id}`}
                         >
                           <i className="fa fa-pencil font-18"></i>

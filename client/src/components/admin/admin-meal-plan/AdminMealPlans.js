@@ -89,6 +89,12 @@ const AdminMealPlans = ({ plans, getPlans, deletePlan }) => {
                       <td>
                         <Link
                           className='btn btn-sm border mx-1 width-40'
+                          to={`plan/${item._id}`}
+                        >
+                          <i className="fa fa-eye font-18"></i>
+                        </Link>
+                        <Link
+                          className='btn btn-sm border mx-1 width-40'
                           to={`plan-edit/${item._id}`}
                         >
                           <i className="fa fa-pencil font-18"></i>

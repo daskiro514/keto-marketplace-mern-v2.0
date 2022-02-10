@@ -5,7 +5,10 @@ import {
 
 const initialState = {
   plans: [],
-  plan: {}
+  plan: {
+    name: '',
+    days: []
+  }
 }
 
 const planReducer = (state = initialState, action) => {

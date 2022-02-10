@@ -5,7 +5,12 @@ const router = express.Router()
 const Plan = require('../../models/Plan')
 
 router.post('/createPlan', async (req, res) => {
-  
+  let newPlan = new Plan({
+    ...req.body
+  })
+
+  await newPlan.save()
+
   res.json({
     success: true
   })
@@ -30,8 +35,27 @@ router.get('/getPlan/:id', async (req, res) => {
   })
 })
 
+router.get('/getPlanInDetail/:id', async (req, res) => {
+  const planID = req.params.id
+  const plan = await Plan.findById(planID).populate({
+    path: 'days',
+    populate: [{ path: 'breakfast' }, { path: 'lunch' }, { path: 'dinner' }, { path: 'snack' }]
+  })
+
+  res.json({
+    success: true,
+    plan
+  })
+})
+
 router.post('/updatePlan/:id', async (req, res) => {
-  
+  const planID = req.params.id
+  const update = {
+    ...req.body
+  }
+
+  await Plan.findByIdAndUpdate(planID, update, { new: true })
+
   res.json({
     success: true
   })

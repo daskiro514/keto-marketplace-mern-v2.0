@@ -35,6 +35,17 @@ export const getPlan = planID => async dispatch => {
   }
 }
 
+export const getPlanInDetail = planID => async dispatch => {
+  const res = await api.get(`/plan/getPlanInDetail/${planID}`)
+
+  if (res.data.success) {
+    dispatch({
+      type: PLAN_LOADED,
+      payload: res.data.plan
+    })
+  }
+}
+
 export const updatePlan = (planID, formData, history) => async dispatch => {
   const res = await api.post(`/plan/updatePlan/${planID}`, formData)
 

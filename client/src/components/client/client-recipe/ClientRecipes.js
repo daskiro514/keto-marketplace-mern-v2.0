@@ -92,6 +92,7 @@ const ClientRecipes = ({ recipes, getRecipes, baseURL }) => {
                     <th>No</th>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>Category</th>
                     <th>Calories</th>
                     <th>Proteins</th>
                     <th>Fats</th>
@@ -104,6 +105,7 @@ const ClientRecipes = ({ recipes, getRecipes, baseURL }) => {
                       <td>{index + 1}</td>
                       <td><img alt='SETIMAGE' src={baseURL + item.image} width="80px" height="60px" /></td>
                       <td>{item.name}</td>
+                      <td>{item.category}</td>
                       <td>{item.calories}</td>
                       <td>{item.protein}</td>
                       <td>{item.fats}</td>

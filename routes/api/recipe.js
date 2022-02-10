@@ -54,11 +54,6 @@ router.post('/createRecipe', fileUpload.fields([{ name: 'image', maxCount: 1 }])
 router.get('/getRecipes', async (req, res) => {
   const recipes = await Recipe.find().populate(['ingredients', 'instructions'])
 
-  // const plans = await Plan.find().populate({
-  //   path: 'recipe',
-  //   populate: [{ path: 'ingredients' }, { path: 'instructions'}]
-  // })
-
   res.json({
     success: true,
     recipes,
