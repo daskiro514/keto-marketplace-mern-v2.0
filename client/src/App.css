@@ -7,6 +7,10 @@ a {
   color: inherit;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 h1, h2, h3, h4, h5, h6, p, span, tr, th, td, div, ul, li, input, label, textarea {
   font-family: 'Montserrat', sans-serif;
 }
@@ -57,6 +61,10 @@ hr {
   font-weight: bold !important;
 }
 
+.font-weight-800 {
+  font-weight: 800 !important;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -80,12 +88,14 @@ hr {
   .sidebar {
     min-height: inherit;
   }
+
   .signoutLink {
     position: inherit;
     margin-top: 30px;
     margin-bottom: 10px;
     width: 100% !important;
   }
+
   .font-36 {
     font-size: 30px !important;
   }
@@ -424,6 +434,7 @@ table tbody tr td {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
@@ -464,3 +475,51 @@ form .form-label {
 .admin-meal-plan-create .form-control {
   background-color: #f6f6f6;
 }
+
+.bg-landing {
+  position: relative;
+  background: url('./img/customer/customerbackground.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+}
+
+.bg-landing .header .btn {
+  color: white;
+  background: linear-gradient(180deg, #4200FF 0%, #1C006C 100%);
+  min-width: 90%;
+}
+
+.get-diet {
+  position: relative;
+  background: url('./img/customer/customerbackground.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+}
+
+.gender-circle .gender-image {
+  opacity: 0.6;
+}
+
+.gender-circle .gender-image:hover {
+  box-shadow: 2px 2px 14px rgb(0 0 0 / 40%);
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.btn-wrapper {
+  margin: auto; 
+  width: 80%;
+  background: linear-gradient(90deg, #0284fe 0%, #0df5d2 100%);
+  padding: 2px;
+  border-radius: 50rem;
+}
+
+.custom-gradient {
+  background: #212d3b;
+  width: 100%;
+  height: 100%;
+  border-radius: 50rem;
+}
+
+.custom-gradient:hover {
+  background: linear-gradient(90deg, #0284fe 0%, #0df5d2 100%);
+}
+

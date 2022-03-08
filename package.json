@@ -1,6 +1,6 @@
 {
-  "name": "devconnector",
-  "version": "1.0.0",
+  "name": "keto-marketplace",
+  "version": "2.0.0",
   "description": "Keto Marketplace",
   "main": "server.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "Brad Traversy",
+  "author": "Daskiro King",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",

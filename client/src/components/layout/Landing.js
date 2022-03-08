@@ -9,25 +9,36 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section className='landing'>
-      <div className='dark-overlay'>
-        <div className='landing-inner'>
-          <h1 className='x-large'>Developer Connector</h1>
-          <p className='lead'>
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
-          </p>
-          <div className='buttons'>
-            <Link to='/register' className='btn btn-primary'>
-              Sign Up
-            </Link>
-            <Link to='/login' className='btn btn-light'>
-              Login
-            </Link>
-          </div>
+    <div className='bg-landing container-fluid'>
+      <div className='mt-5 landing-logo text-center text-white h1'>
+        <div>
+          Customer Keto Diet
         </div>
       </div>
-    </section>
+      <div className='row'>
+        <div className='col-md-4'></div>
+        <div className='col-md-4'>
+          <div className='header text-center mt-5'>
+            <div className='mb-3'>
+              <Link to='/get-diet' className='btn rounded-pill'>
+                Get Diet
+              </Link>
+            </div>
+            <div className='mb-3'>
+              <Link to='/login' className='btn rounded-pill'>
+                Login
+              </Link>
+            </div>
+            <div className='mb-3'>
+              <Link to='/register' className='btn rounded-pill'>
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className='col-md-4'></div>
+      </div>
+    </div>
   )
 }
 

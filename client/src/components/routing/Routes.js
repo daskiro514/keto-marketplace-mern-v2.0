@@ -13,12 +13,16 @@ import AffiliateRegister from '../auth/AffiliateRegister'
 import FailedConnectAccount from '../auth/FailedConnectAccount'
 import Thanks from '../auth/Thanks'
 import ClientRegisterByAffiliate from '../auth/ClientRegisterByAffiliate'
+import Landing from '../layout/Landing'
+import GetDiet from '../get-diet/GetDiet'
 
 const Routes = props => {
   return (
     <>
       <Alert />
       <Switch>
+        <Route exact path="/landing" component={Landing} />
+        <Route path="/get-diet" component={GetDiet} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/register/affiliate" component={AffiliateRegister} />
         <Route exact path="/register/client" component={ClientRegister} />
