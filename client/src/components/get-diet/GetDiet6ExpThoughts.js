@@ -1,8 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Link, Redirect } from 'react-router-dom'
 
-const GetDiet6ExpThoughts = () => {
-
+const GetDiet6ExpThoughts = ({ gender }) => {
+  if (!gender) {
+    return <Redirect to='/' />
+  }
   return (
     <div className='get-diet-gender'>
       <div className='page-question text-center text-white font-bold my-4'>
@@ -14,7 +17,7 @@ const GetDiet6ExpThoughts = () => {
         <div className='col-md-6'>
           <div className='text-center my-5 cursor-pointer'>
             <div className="btn-wrapper">
-              <Link to='/'>
+              <Link to='/quiz-7'>
                 <div className='font-24 p-2 custom-gradient'>
                   Loved it!
                 </div>
@@ -23,7 +26,7 @@ const GetDiet6ExpThoughts = () => {
           </div>
           <div className='text-center mb-5 cursor-pointer'>
             <div className="btn-wrapper">
-              <Link to='/difficult-part'>
+              <Link to='/quiz-5'>
                 <div className='font-24 p-2 custom-gradient'>
                   Found it difficult
                 </div>
@@ -37,4 +40,8 @@ const GetDiet6ExpThoughts = () => {
   )
 }
 
-export default GetDiet6ExpThoughts
+const mapStateToProps = state => ({
+  gender: state.diet.gender
+})
+
+export default connect(mapStateToProps, {})(GetDiet6ExpThoughts)

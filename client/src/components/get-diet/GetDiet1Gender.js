@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import maleImage from '../../img/customer/male.png'
 import femaleImage from '../../img/customer/female.png'
 import { Link } from 'react-router-dom'
+import { setGender } from '../../actions/diet'
 
-const GetDietGender = () => {
+const GetDietGender = ({ gender, setGender }) => {
 
   return (
     <div className='get-diet-gender'>
@@ -15,7 +17,7 @@ const GetDietGender = () => {
         <div className='col-md-3'></div>
         <div className='col-md-6 row align-items-center'>
           <div className='col-md-5 text-center gender-circle my-5'>
-            <Link to='/current-following'>
+            <Link to='/quiz-2' onClick={() => setGender('MALE')}>
               <img alt='SETIMAGE' src={maleImage} className='img-fluid gender-image' />
             </Link>
           </div>
@@ -23,7 +25,7 @@ const GetDietGender = () => {
             OR
           </div>
           <div className='col-md-5 text-center gender-circle my-5'>
-            <Link to='/current-following'>
+            <Link to='/quiz-2' onClick={() => setGender('FEMALE')}>
               <img alt='SETIMAGE' src={femaleImage} className='img-fluid gender-image' />
             </Link>
           </div>
@@ -34,4 +36,8 @@ const GetDietGender = () => {
   )
 }
 
-export default GetDietGender
+const mapStateToProps = state => ({
+  gender: state.diet.gender
+})
+
+export default connect(mapStateToProps, { setGender })(GetDietGender)

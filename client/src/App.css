@@ -523,3 +523,20 @@ form .form-label {
   background: linear-gradient(90deg, #0284fe 0%, #0df5d2 100%);
 }
 
+.custom-gradient-measurement {
+  background: #212d3b;
+  border-radius: 50rem;
+  width: 100px;
+}
+
+.custom-gradient-measurement:hover {
+  background: linear-gradient(90deg, #0284fe 0%, #0df5d2 100%);
+}
+
+.custom-gradient-measurement-selected {
+  background: linear-gradient(90deg, #0284fe 0%, #0df5d2 100%);
+}
+
+.get-diet-result .apexcharts-legend-text {
+  color: white !important;
+}

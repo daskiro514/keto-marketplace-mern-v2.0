@@ -9,6 +9,7 @@ import stripe from './stripe'
 import order from './order'
 import recipe from './recipe'
 import plan from './plan'
+import diet from './diet'
 
 export default combineReducers({
   alert,
@@ -21,4 +22,5 @@ export default combineReducers({
   order,
   recipe,
   plan,
+  diet,
 })

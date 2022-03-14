@@ -1,9 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import yesImage from '../../img/customer/yes.png'
 import noImage from '../../img/customer/no.png'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
-const GetDiet2CurrentFollowing = () => {
+const GetDiet2CurrentFollowing = ({ gender }) => {
+
+  if (!gender) {
+    return <Redirect to='/' />
+  }
 
   return (
     <div className='get-diet-gender'>
@@ -15,7 +20,7 @@ const GetDiet2CurrentFollowing = () => {
         <div className='col-md-3'></div>
         <div className='col-md-6 row align-items-center'>
           <div className='col-md-5 text-center gender-circle my-5'>
-            <Link to='/difficulty'>
+            <Link to='/quiz-3'>
               <img alt='SETIMAGE' src={yesImage} className='img-fluid gender-image' />
             </Link>
           </div>
@@ -23,7 +28,7 @@ const GetDiet2CurrentFollowing = () => {
             OR
           </div>
           <div className='col-md-5 text-center gender-circle my-5'>
-            <Link to='/experience'>
+            <Link to='/quiz-4'>
               <img alt='SETIMAGE' src={noImage} className='img-fluid gender-image' />
             </Link>
           </div>
@@ -34,4 +39,8 @@ const GetDiet2CurrentFollowing = () => {
   )
 }
 
-export default GetDiet2CurrentFollowing
+const mapStateToProps = state => ({
+  gender: state.diet.gender
+})
+
+export default connect(mapStateToProps, {})(GetDiet2CurrentFollowing)
