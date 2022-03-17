@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.d25e7a9d.chunk.css",
-    "main.js": "/static/js/main.431ca125.chunk.js",
-    "main.js.map": "/static/js/main.431ca125.chunk.js.map",
+    "main.js": "/static/js/main.77c35860.chunk.js",
+    "main.js.map": "/static/js/main.77c35860.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.71c5bbf3.js",
     "runtime-main.js.map": "/static/js/runtime-main.71c5bbf3.js.map",
     "static/css/2.59060b94.chunk.css": "/static/css/2.59060b94.chunk.css",
@@ -15,12 +15,8 @@
     "static/media/academy.6cfd8ee5.PNG": "/static/media/academy.6cfd8ee5.PNG",
     "static/media/affiliates.ae7814e5.PNG": "/static/media/affiliates.ae7814e5.PNG",
     "static/media/analytics.a565aa17.PNG": "/static/media/analytics.a565aa17.PNG",
-    "static/media/bodyfat0.ad8eb235.jpg": "/static/media/bodyfat0.ad8eb235.jpg",
-    "static/media/bodyfat1.152180c1.jpg": "/static/media/bodyfat1.152180c1.jpg",
     "static/media/bodyfat2.423cc792.jpg": "/static/media/bodyfat2.423cc792.jpg",
     "static/media/bodyfat3.ef3aeb3c.jpg": "/static/media/bodyfat3.ef3aeb3c.jpg",
-    "static/media/bodyfat4.6edeafba.jpg": "/static/media/bodyfat4.6edeafba.jpg",
-    "static/media/bodyfat5.cfebe3cc.jpg": "/static/media/bodyfat5.cfebe3cc.jpg",
     "static/media/App.css": "/static/media/customerbackground.b884538d.jpg",
     "static/media/dashboard.7b89bdcf.PNG": "/static/media/dashboard.7b89bdcf.PNG",
     "static/media/female.4eefbe4a.png": "/static/media/female.4eefbe4a.png",
@@ -41,6 +37,6 @@
     "static/css/2.59060b94.chunk.css",
     "static/js/2.9f352453.chunk.js",
     "static/css/main.d25e7a9d.chunk.css",
-    "static/js/main.431ca125.chunk.js"
+    "static/js/main.77c35860.chunk.js"
   ]
 }

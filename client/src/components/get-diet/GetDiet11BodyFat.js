@@ -2,12 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect, useHistory } from 'react-router-dom'
 import { setBodyFat } from '../../actions/diet'
-import bodyfat0 from '../../img/customer/bodyfat0.jpg'
-import bodyfat1 from '../../img/customer/bodyfat1.jpg'
 import bodyfat2 from '../../img/customer/bodyfat2.jpg'
 import bodyfat3 from '../../img/customer/bodyfat3.jpg'
-import bodyfat4 from '../../img/customer/bodyfat4.jpg'
-import bodyfat5 from '../../img/customer/bodyfat5.jpg'
 
 const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
   const history = useHistory()
@@ -70,9 +66,6 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
                 <strong>1. Using Skinfold Calipers (preferred method)</strong><br />
                 To get a good estimate of your body fat percentage, use our <u><a href="https://ketodietapp.com/Blog/page/body-fat-calculator" target="_blank" rel="noreferrer"><strong>Body Fat Calculator</strong></a></u> (Jackson / Pollock method). For the most accurate results, use a formula best suited for your needs <u>(<a href="http://www.linear-software.com/online.html" target="_blank" rel="noreferrer">read more</a></u> about other caliper methods).
               </p>
-              <div className='text-center px-3'>
-                <img alt='SETIMAGE' src={bodyfat0} className='img-fluid rounded' />
-              </div>
             </div>
             <div className='pt-3 text-justify'>
               <p>
@@ -97,11 +90,12 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
               <button type="button" className="close" data-dismiss="modal">&times;</button>
             </div>
             <div className="modal-body">
-              <img alt='SETIMAGE' src={bodyfat1} className='img-fluid pb-3' />
-              <img alt='SETIMAGE' src={bodyfat2} className='img-fluid pb-3' />
-              <img alt='SETIMAGE' src={bodyfat3} className='img-fluid pb-3' />
-              <img alt='SETIMAGE' src={bodyfat4} className='img-fluid pb-3' />
-              <img alt='SETIMAGE' src={bodyfat5} className='img-fluid pb-3' />
+              {gender === 'MALE'
+                ?
+                <img alt='SETIMAGE' src={bodyfat3} className='img-fluid pb-3' />
+                :
+                <img alt='SETIMAGE' src={bodyfat2} className='img-fluid pb-3' />
+              }
             </div>
           </div>
         </div>
