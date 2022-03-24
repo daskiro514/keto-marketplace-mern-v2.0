@@ -1,24 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { setBodyFat } from '../../actions/diet'
 import bodyfat2 from '../../img/customer/bodyfat2.jpg'
 import bodyfat3 from '../../img/customer/bodyfat3.jpg'
 
 const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
-  const history = useHistory()
-
-  const [bodyfat, setBodyfat] = React.useState()
 
   if (!gender) {
     return <Redirect to='/' />
   }
 
-  const onSubmit = e => {
-    e.preventDefault()
-    setBodyFat(bodyfat)
-    history.push('/quiz-12')
-  }
+  const maleBodyFat = [5, 8, 12, 15, 20, 25, 30, 35, 40]
+  const femaleBodyFat = [10, 15, 20, 25, 30, 35, 40, 45, 50]
 
   return (
     <div className='get-diet-gender'>
@@ -30,7 +24,34 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
         <div className='col-md-3'></div>
         <div className='col-md-6'>
           <div className='text-center mb-3 cursor-pointer'>
-            <form className='form' onSubmit={onSubmit}>
+            {gender === 'MALE'
+              ?
+              maleBodyFat.map((item, index) =>
+                <div key={index} className='text-center my-2 cursor-pointer'>
+                  <div className="btn-wrapper">
+                    <Link to='/quiz-12' onClick={() => setBodyFat(item)}>
+                      <div className='font-20 p-1 custom-gradient'>
+                        {item === 8 ? 'Under 8' : item === 40 ? 'Over 35' : item} %
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )
+              :
+              femaleBodyFat.map((item, index) =>
+                <div key={index} className='text-center my-2 cursor-pointer'>
+                  <div className="btn-wrapper">
+                    <Link to='/quiz-12' onClick={() => setBodyFat(item)}>
+                      <div className='font-20 p-1 custom-gradient'>
+                        {item === 10 ? 'Under 15' : item === 50 ? 'Over 45' : item} %
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              )
+            }
+
+            {/* <form className='form' onSubmit={onSubmit}>
               <div className="input-group mb-3 mx-auto" style={{ width: '80%', backgroundColor: 'transparent', color: '#7591b2', fontSize: '20px' }}>
                 <div className="input-group-prepend">
                   <span className="input-group-text text-white" style={{ backgroundColor: 'transparent' }} >%</span>
@@ -51,7 +72,7 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
                   Submit
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
         </div>
         <div className='col-md-3'></div>
