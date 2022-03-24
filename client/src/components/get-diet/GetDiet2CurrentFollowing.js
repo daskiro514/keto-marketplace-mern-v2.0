@@ -13,7 +13,7 @@ const GetDiet2CurrentFollowing = ({ gender }) => {
   return (
     <div className='get-diet-gender'>
       <div className='page-question text-center text-white font-bold my-4'>
-        <div className='font-36 font-weight-800'>KETO DIET FOLLOWING</div>
+        <div className='font-36 font-weight-800'>YOUR CURRENT DIET</div>
         <div className='text-secondary font-18 my-1'>Are you currently following a keto diet?</div>
       </div>
       <div className='my-3 row text-white'>

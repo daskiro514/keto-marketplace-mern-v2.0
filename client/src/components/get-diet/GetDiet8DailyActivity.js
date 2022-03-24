@@ -12,8 +12,8 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
   return (
     <div className='get-diet-gender'>
       <div className='page-question text-center text-white font-bold my-4'>
-        <div className='font-36 font-weight-800'>Daily Activity Level</div>
-        <div className='text-secondary font-18 my-1'>Whats your daily activity level?</div>
+        <div className='font-36 font-weight-800'>What Sounds Most Like You?</div>
+        <div className='text-secondary font-18 my-1'>What is your daily activity level?</div>
       </div>
       <div className='my-3 row text-white'>
         <div className='col-md-3'></div>
@@ -22,7 +22,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(0.2)}>
                 <div className='font-24 p-2 custom-gradient'>
-                  Not Much
+                  I Rarely Excercise
                 </div>
               </Link>
             </div>
@@ -31,7 +31,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(0.4)}>
                 <div className='font-24 p-2 custom-gradient'>
-                  I train 1 - 2 times per week
+                  I workout a couple times a week
                 </div>
               </Link>
             </div>
@@ -40,7 +40,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(0.6)}>
                 <div className='font-24 p-2 custom-gradient'>
-                  I train 2 - 4 times per week
+                  Consistant gym / fitness 3-4 days a week
                 </div>
               </Link>
             </div>
@@ -49,7 +49,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(0.8)}>
                 <div className='font-24 p-2 custom-gradient'>
-                  I train 5 - 7 times per week
+                  I'm crushing it!! - 4 days plus
                 </div>
               </Link>
             </div>
@@ -58,7 +58,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(1)}>
                 <div className='font-24 p-2 custom-gradient'>
-                  I am an athlete/superhero
+                  I'm an athlete/superhero
                 </div>
               </Link>
             </div>

@@ -3,13 +3,15 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 
 const GetDiet3Difficulty = ({ gender }) => {
+
   if (!gender) {
     return <Redirect to='/' />
   }
+
   return (
     <div className='get-diet-gender'>
       <div className='page-question text-center text-white font-bold my-4'>
-        <div className='font-36 font-weight-800'>DIFFICULTY</div>
+        <div className='font-36 font-weight-800'>Tell us how you Feel about it</div>
         <div className='text-secondary font-18 my-1'>Do you love everything about the keto diet or do you find it difficult?</div>
       </div>
       <div className='my-3 row text-white'>

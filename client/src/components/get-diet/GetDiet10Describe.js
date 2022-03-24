@@ -11,9 +11,11 @@ const GetDiet10Describe = ({ gender }) => {
   const [describe6, setDescribe6] = React.useState(false)
   const [describe7, setDescribe7] = React.useState(false)
   const [describe8, setDescribe8] = React.useState(false)
+
   if (!gender) {
     return <Redirect to='/' />
   }
+
   return (
     <div className='get-diet-gender'>
       <div className='page-question text-center text-white font-bold my-4'>
@@ -37,7 +39,7 @@ const GetDiet10Describe = ({ gender }) => {
           </div>
           <div className='text-center my-3 cursor-pointer'>
             <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe3(!describe3)}>
-              I eat a lot of proceeded foods
+              I eat a lot of processed foods
               {describe3 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
             </button>
           </div>
@@ -55,7 +57,7 @@ const GetDiet10Describe = ({ gender }) => {
           </div>
           <div className='text-center my-3 cursor-pointer'>
             <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe6(!describe6)}>
-              I love energy drink
+              I love energy drinks
               {describe6 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
             </button>
           </div>

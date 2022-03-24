@@ -3,9 +3,17 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 
 const GetDiet5DifficultPart = ({ gender }) => {
+  const [difficulty1, setDifficulty1] = React.useState(false)
+  const [difficulty2, setDifficulty2] = React.useState(false)
+  const [difficulty3, setDifficulty3] = React.useState(false)
+  const [difficulty4, setDifficulty4] = React.useState(false)
+  const [difficulty5, setDifficulty5] = React.useState(false)
+  const [difficulty6, setDifficulty6] = React.useState(false)
+
   if (!gender) {
     return <Redirect to='/' />
   }
+
   return (
     <div className='get-diet-gender'>
       <div className='page-question text-center text-white font-bold my-4'>
@@ -16,55 +24,46 @@ const GetDiet5DifficultPart = ({ gender }) => {
         <div className='col-md-3'></div>
         <div className='col-md-6'>
           <div className='text-center my-3 cursor-pointer'>
-            <div className="btn-wrapper">
-              <Link to='/quiz-7'>
-                <div className='font-24 p-2 custom-gradient'>
-                  I found it restrictive
-                </div>
-              </Link>
-            </div>
+            <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty1(!difficulty1)}>
+              I found it restrictive
+              {difficulty1 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+            </button>
           </div>
           <div className='text-center mb-3 cursor-pointer'>
-            <div className="btn-wrapper">
-              <Link to='/quiz-7'>
-                <div className='font-24 p-2 custom-gradient'>
-                  I didn't like the food choices
-                </div>
-              </Link>
-            </div>
+            <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty2(!difficulty2)}>
+              I didn't like the food choices
+              {difficulty2 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+            </button>
           </div>
           <div className='text-center mb-3 cursor-pointer'>
-            <div className="btn-wrapper">
-              <Link to='/quiz-7'>
-                <div className='font-24 p-2 custom-gradient'>
-                  I gained weight
-                </div>
-              </Link>
-            </div>
+            <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty3(!difficulty3)}>
+              I gained weight
+              {difficulty3 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+            </button>
           </div>
           <div className='text-center mb-3 cursor-pointer'>
-            <div className="btn-wrapper">
-              <Link to='/quiz-7'>
-                <div className='font-24 p-2 custom-gradient'>
-                  I felt sick
-                </div>
-              </Link>
-            </div>
+            <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty4(!difficulty4)}>
+              I felt sick
+              {difficulty4 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+            </button>
           </div>
           <div className='text-center mb-3 cursor-pointer'>
-            <div className="btn-wrapper">
-              <Link to='/quiz-7'>
-                <div className='font-24 p-2 custom-gradient'>
-                  I was confused
-                </div>
-              </Link>
-            </div>
+            <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty5(!difficulty5)}>
+              I was confused
+              {difficulty5 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+            </button>
           </div>
           <div className='text-center mb-3 cursor-pointer'>
+            <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty6(!difficulty6)}>
+              I just couldn't stick to it
+              {difficulty6 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+            </button>
+          </div>
+          <div className='text-center mb-3 cursor-pointer py-4'>
             <div className="btn-wrapper">
               <Link to='/quiz-7'>
                 <div className='font-24 p-2 custom-gradient'>
-                  I just couldn't stick to it
+                  Next
                 </div>
               </Link>
             </div>
