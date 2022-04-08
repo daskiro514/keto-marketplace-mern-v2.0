@@ -25,3 +25,17 @@ export const setMeasurement = mesurement => async dispatch => {
     payload: mesurement
   })
 }
+
+export const setGoalList = goals => async dispatch => {
+  dispatch({
+    type: 'SET_GOALS',
+    payload: goals
+  })
+}
+
+export const setDescribeList = describes => async dispatch => {
+  dispatch({
+    type: 'SET_DESCRIBES',
+    payload: describes
+  })
+}

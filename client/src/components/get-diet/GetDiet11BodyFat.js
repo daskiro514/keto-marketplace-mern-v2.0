@@ -11,8 +11,8 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
     return <Redirect to='/' />
   }
 
-  const maleBodyFat = [5, 8, 12, 15, 20, 25, 30, 35, 40]
-  const femaleBodyFat = [10, 15, 20, 25, 30, 35, 40, 45, 50]
+  const maleBodyFat = [8, 15, 20, 25, 30, 35]
+  const femaleBodyFat = [8, 15, 20, 25, 30, 35]
 
   return (
     <div className='get-diet-gender'>
@@ -31,7 +31,7 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
                   <div className="btn-wrapper">
                     <Link to='/quiz-12' onClick={() => setBodyFat(item)}>
                       <div className='font-20 p-1 custom-gradient'>
-                        {item === 8 ? 'Under 8' : item === 40 ? 'Over 35' : item} %
+                        {item} %
                       </div>
                     </Link>
                   </div>
@@ -81,7 +81,7 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
         <div className='row'>
           <div className='col-md-2'></div>
           <div className='col-md-8 py-4 text-white'>
-            <div className='text-center h3'>How to find your Body Fat Percentage</div>
+            {/* <div className='text-center h3'>How to find your Body Fat Percentage</div>
             <div className='pt-3 text-justify'>
               <p>
                 <strong>1. Using Skinfold Calipers (preferred method)</strong><br />
@@ -98,7 +98,13 @@ const GetDiet11BodyFat = ({ gender, setBodyFat }) => {
               <p>
                 <strong>3. Visual estimates</strong> using comparison illustrations - <button type="button" className="p-0 m-0 btn text-white" data-toggle="modal" data-target="#myModal"><u><strong>Click here</strong></u></button> for comparison images.
               </p>
-            </div>
+            </div> */}
+            {gender === 'MALE'
+              ?
+              <img alt='SETIMAGE' src={bodyfat3} className='img-fluid pb-3' />
+              :
+              <img alt='SETIMAGE' src={bodyfat2} className='img-fluid pb-3' />
+            }
           </div>
           <div className='col-md-2'></div>
         </div>

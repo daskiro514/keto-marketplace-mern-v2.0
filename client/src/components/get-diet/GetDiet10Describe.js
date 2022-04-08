@@ -1,16 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
+import { setDescribeList } from '../../actions/diet'
 
-const GetDiet10Describe = ({ gender }) => {
-  const [describe1, setDescribe1] = React.useState(false)
-  const [describe2, setDescribe2] = React.useState(false)
-  const [describe3, setDescribe3] = React.useState(false)
-  const [describe4, setDescribe4] = React.useState(false)
-  const [describe5, setDescribe5] = React.useState(false)
-  const [describe6, setDescribe6] = React.useState(false)
-  const [describe7, setDescribe7] = React.useState(false)
-  const [describe8, setDescribe8] = React.useState(false)
+const describeList = [
+  "I don't get enough sleep",
+  "I don't sleep Well",
+  "I eat a lot of processed foods",
+  "I cannot get off the sweets",
+  "I love soft drinks",
+  "I love energy drinks",
+  "I drink more than 3 coffees a day",
+]
+
+const GetDiet10Describe = ({ gender, setDescribeList }) => {
+  const [describes, setDescribes] = React.useState([false, false, false, false, false, false, false])
+
+  const setDescribeArray = index => {
+    let _describes = [...describes]
+    _describes[index] = !_describes[index]
+    setDescribes(_describes)
+  }
 
   if (!gender) {
     return <Redirect to='/' />
@@ -25,57 +35,17 @@ const GetDiet10Describe = ({ gender }) => {
       <div className='my-3 row text-white'>
         <div className='col-md-3'></div>
         <div className='col-md-6'>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe1(!describe1)}>
-              I don't get enough sleep
-              {describe1 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe2(!describe2)}>
-              I don't sleep Well
-              {describe2 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe3(!describe3)}>
-              I eat a lot of processed foods
-              {describe3 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe4(!describe4)}>
-              I cannot get off the sweets
-              {describe4 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe5(!describe5)}>
-              I love soft drinks
-              {describe5 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe6(!describe6)}>
-              I love energy drinks
-              {describe6 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe7(!describe7)}>
-              I love coffee
-              {describe7 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
-          <div className='text-center my-3 cursor-pointer'>
-            <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribe8(!describe8)}>
-              I drink more than 3 coffees a day
-              {describe8 ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
-            </button>
-          </div>
+          {describes.map((item, index) =>
+            <div key={index} className='text-center my-3 cursor-pointer'>
+              <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribeArray(index)}>
+                {describeList[index]}
+                {item ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+              </button>
+            </div>
+          )}
           <div className='text-center mb-3 cursor-pointer py-4'>
             <div className="btn-wrapper">
-              <Link to='/quiz-11'>
+              <Link to='/quiz-11' onClick={() => setDescribeList(describes)}>
                 <div className='font-24 p-2 custom-gradient'>
                   Next
                 </div>
@@ -93,4 +63,4 @@ const mapStateToProps = state => ({
   gender: state.diet.gender
 })
 
-export default connect(mapStateToProps, {})(GetDiet10Describe)
+export default connect(mapStateToProps, { setDescribeList })(GetDiet10Describe)

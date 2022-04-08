@@ -5,7 +5,9 @@ const initialState = {
   age: null,
   height: null,
   weight: null,
-  desiredWeight: null
+  desiredWeight: null,
+  goals: [],
+  describes: [],
 }
 
 const dietReducer = (state = initialState, action) => {
@@ -34,6 +36,16 @@ const dietReducer = (state = initialState, action) => {
         height: payload.height,
         weight: payload.weight,
         desiredWeight: payload.desiredWeight
+      }
+    case 'SET_GOALS':
+      return {
+        ...state,
+        goals: payload
+      }
+    case 'SET_DESCRIBES':
+      return {
+        ...state,
+        describes: payload
       }
     default:
       return state
