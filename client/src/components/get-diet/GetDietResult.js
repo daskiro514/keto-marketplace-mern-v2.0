@@ -199,7 +199,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
                 </table>
                 <div className="chart-wrap">
                   <div id="chart" className='d-flex justify-content-center py-3'>
-                    <ReactApexChart options={options} series={series} type="pie" />
+                    <ReactApexChart options={options} series={series} type="pie" width={380} />
                   </div>
                 </div>
                 <div className='mt-3'>
