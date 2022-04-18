@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import core from '../../utils/keto-diet-buddy-core';
-import ReactApexChart from 'react-apexcharts'
+// import ReactApexChart from 'react-apexcharts'
 
 import fatImage from '../../img/customer/fat.png'
 import energyImage from '../../img/customer/energy.png'
@@ -22,6 +22,14 @@ import drinkImage from '../../img/customer/drink.png'
 import KarleeImage from '../../img/customer/Karlee.jpeg'
 import NatashaImage from '../../img/customer/Natasha.jpeg'
 import LeoImage from '../../img/customer/Leo.jpeg'
+
+import waterImage from '../../img/customer/water.png'
+import bmiImage from '../../img/customer/bmi-graph.png'
+import bodyImage from '../../img/customer/body-part.jpg'
+import heartImage from '../../img/customer/heart.png'
+import scaleImage from '../../img/customer/scales-blue-gradient.png'
+
+import Radialbar from '../layout/Radialbar'
 
 const describeList = [
   { text: "I don't get enough sleep", image: restfulImage },
@@ -67,16 +75,16 @@ const comments = [
 const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
 
   const [result, setResult] = React.useState(null)
-  const [series, setSeries] = React.useState([44, 55, 13])
+  // const [series, setSeries] = React.useState([44, 55, 13])
   const [BMI, setBMI] = React.useState(0)
   const [dailyWaterIntake, setDailyWaterIntake] = React.useState(0)
 
-  const options = {
-    chart: {
-      type: 'pie',
-    },
-    labels: ['Net Carbs', 'Protein', 'Fat'],
-  }
+  // const options = {
+  //   chart: {
+  //     type: 'pie',
+  //   },
+  //   labels: ['Net Carbs', 'Protein', 'Fat'],
+  // }
 
   React.useEffect(() => {
     const others = {
@@ -99,7 +107,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
     setBMI((weight / (height / 100) ** 2).toFixed(1))
 
     setResult(result.desirable)
-    setSeries([result.desirable.percEnergyNetCarbs, result.desirable.percEnergyProtein, result.desirable.percEnergyFat])
+    // setSeries([result.desirable.percEnergyNetCarbs, result.desirable.percEnergyProtein, result.desirable.percEnergyFat])
   }, [activityLevel, age, bodyfat, desiredWeight, gender, height, weight])
 
 
@@ -172,57 +180,211 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
           <div className='col-md-8'>
             {result
               ?
-              <div className='table-responsive'>
-                <table className='table text-white table-bordered'>
-                  <thead>
-                    <tr className='text-success align-middle'>
-                      <th className='align-middle'>Daily Calories</th>
-                      <th className='align-middle'>Daily Fat</th>
-                      <th className='align-middle'>Daily Protein</th>
-                      <th className='align-middle'>Daily Carbs</th>
-                      <th className='align-middle'>Daily Water Intake</th>
-                      <th className='align-middle'>BMI (Body Mass Index)</th>
-                      <th className='align-middle'>Daily Activity Level</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{Math.round(result.energy / 10) * 10 - 50} - {Math.round(result.energy / 10) * 10 + 50} calories</td>
-                      <td>{Math.round(result.gramsFat - 5)} - {Math.round(result.gramsFat + 5)} grams</td>
-                      <td>{Math.round(result.gramsProtein - 5)} - {Math.round(result.gramsProtein + 5)} grams</td>
-                      <td>{Math.round(result.gramsNetCarbs - 5)} - {Math.round(result.gramsNetCarbs + 5)} grams</td>
-                      <td>{dailyWaterIntake} liters</td>
-                      <td>{BMI} ({BMI < 18.5 ? 'Underweight' : BMI > 24.9 ? 'Overweight' : 'Normal'})</td>
-                      <td>{activityLevel <= 0.4 ? 'Low' : activityLevel > 0.4 ? 'Normal' : activityLevel >= 0.8 ? 'High' : null}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="chart-wrap">
-                  <div id="chart" className='d-flex justify-content-center py-3'>
-                    <ReactApexChart options={options} series={series} type="pie" width={380} />
+              <div className='mb-5 row justify-content-center'>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ width: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Daily Calories</div>
+                        <Radialbar
+                          showLabel='Calories'
+                          maxValue={5000}
+                          showValue={Math.round(result.energy / 10) * 10}
+                          showValue1={Math.round(result.energy / 10) * 10 - 50}
+                          showValue2={Math.round(result.energy / 10) * 10 + 50}
+                          startColor='#03e5d9'
+                          endColor='#0095f8'
+                        />
+                      </div>
+                      <div className='position-absolute' style={{ top: '220px', width: '290px' }}>
+                        <div className='d-flex justify-content-between font-12 mb-4 text-secondary'>
+                          <div>0 Calories</div>
+                          <div>5000 Calories</div>
+                        </div>
+                        <div>Recommended Calories:</div>
+                        <div className='text-success'>{Math.round(result.energy / 10) * 10 - 50} - {Math.round(result.energy / 10) * 10 + 50}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className='mt-3'>
-                  <div className='my-1 text-left'>
-                    <div className='text-success font-24'>Lose Weight Body Parts:</div>
-                    <div className='font-18 ml-3'>You'll lose weight from these parts: <span className='text-warning'>Cheeks, belly, upper & lower limbs</span></div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ width: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Daily Fats</div>
+                        <Radialbar
+                          showLabel='Fats'
+                          maxValue={300}
+                          showValue={Math.round(result.gramsFat / 10) * 10}
+                          showValue1={Math.round(result.gramsFat / 10) * 10 - 5}
+                          showValue2={Math.round(result.gramsFat / 10) * 10 + 5}
+                          startColor='#f053c7'
+                          endColor='#a315eb'
+                        />
+                      </div>
+                      <div className='position-absolute' style={{ top: '220px', width: '290px' }}>
+                        <div className='d-flex justify-content-between font-12 mb-4 text-secondary'>
+                          <div>0g Fats</div>
+                          <div>300g Fats</div>
+                        </div>
+                        <div>Recommended Fats:</div>
+                        <div className='text-success'>{Math.round(result.gramsFat / 10) * 10 - 5} - {Math.round(result.gramsFat / 10) * 10 + 5}</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className='my-1 text-left'>
-                    <div className='text-success font-24'>Month 1 Target:</div>
-                    <div className='font-18 ml-3'>Achevable Month 1 Weight: <span className='text-warning'>{weight - 5} Kg</span></div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ width: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Daily Protein</div>
+                        <Radialbar
+                          showLabel='Protein'
+                          maxValue={400}
+                          showValue={Math.round(result.gramsProtein / 10) * 10}
+                          showValue1={Math.round(result.gramsProtein / 10) * 10 - 5}
+                          showValue2={Math.round(result.gramsProtein / 10) * 10 + 5}
+                          startColor='#94db11'
+                          endColor='#76f88f'
+                        />
+                      </div>
+                      <div className='position-absolute' style={{ top: '220px', width: '290px' }}>
+                        <div className='d-flex justify-content-between font-12 mb-4 text-secondary'>
+                          <div>0g Protein</div>
+                          <div>400g Protein</div>
+                        </div>
+                        <div>Recommended Protein:</div>
+                        <div className='text-success'>{Math.round(result.gramsProtein / 10) * 10 - 5} - {Math.round(result.gramsProtein / 10) * 10 + 5}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ width: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Daily Carbs</div>
+                        <Radialbar
+                          showLabel='Carbs'
+                          maxValue={60}
+                          showValue={Math.round(result.gramsNetCarbs / 10) * 10}
+                          showValue1={Math.round(result.gramsNetCarbs / 10) * 10 - 5}
+                          showValue2={Math.round(result.gramsNetCarbs / 10) * 10 + 5}
+                          startColor='#f5a814'
+                          endColor='#fdce77'
+                        />
+                      </div>
+                      <div className='position-absolute' style={{ top: '220px', width: '290px' }}>
+                        <div className='d-flex justify-content-between font-12 mb-4 text-secondary'>
+                          <div>0g Carbs</div>
+                          <div>60g Carbs</div>
+                        </div>
+                        <div>Recommended Carbs:</div>
+                        <div className='text-success'>{Math.round(result.gramsNetCarbs / 10) * 10 - 5} - {Math.round(result.gramsNetCarbs / 10) * 10 + 5}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ minWidth: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Daily Water Intake</div>
+                      </div>
+                      <div className='mt-4'>
+                        <img alt='SETIMAGE' className='img-fluid' src={waterImage} />
+                      </div>
+                      <div className='font-24 position-absolute' style={{ top: '125px', width: '290px' }}>
+                        {dailyWaterIntake} L
+                      </div>
+                      <div className='position-absolute' style={{ top: '260px', width: '290px' }}>
+                        <div>Recommended Water:</div>
+                        <div className='text-success'>{dailyWaterIntake} L</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ minWidth: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Your BMI</div>
+                      </div>
+                      <div className='mt-4'>
+                        <img alt='SETIMAGE' className='img-fluid' src={bmiImage} width='250' />
+                      </div>
+                      <div className='font-24 position-absolute' style={{ top: '100px', width: '290px' }}>
+                        {BMI}
+                      </div>
+                      <div className='position-absolute' style={{ top: '260px', width: '290px' }}>
+                        <div>Your BMI:</div>
+                        <div className='text-success'>{BMI < 18.5 ? 'Underweight' : BMI > 24.9 ? 'Overweight' : 'Healthy'}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ minWidth: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Lose Weight Body Parts</div>
+                      </div>
+                      <div className=''>
+                        <img alt='SETIMAGE' className='img-fluid' src={bodyImage} width='250' />
+                      </div>
+                      <div className='position-absolute' style={{ top: '260px', width: '290px' }}>
+                        <div>You'll lose weight from these parts:</div>
+                        <div className='text-warning'>Cheeks, belly, upper & lower limbs</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ minWidth: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Daily Activity Level</div>
+                      </div>
+                      <div className='mt-4'>
+                        <img alt='SETIMAGE' className='img-fluid' src={heartImage} width='180' />
+                      </div>
+                      <div className='position-absolute' style={{ top: '260px', width: '290px' }}>
+                        <div>Your Daily Activity Level:</div>
+                        <div className='text-warning'>{activityLevel <= 0.4 ? 'Low' : activityLevel > 0.4 ? 'Normal' : activityLevel >= 0.8 ? 'High' : null}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='d-inline-block p-3'>
+                  <div className='bg-black mx-auto rounded-xl p-3' style={{ minWidth: '320px', height: '360px' }}>
+                    <div className="chart-wrap position-relative">
+                      <div id="chart">
+                        <div className='text-success text-left font-24 d-block'>Month 1 Target</div>
+                      </div>
+                      <div className='mt-4'>
+                        <img alt='SETIMAGE' className='img-fluid' src={scaleImage} width='180' />
+                      </div>
+                      <div className='position-absolute' style={{ top: '260px', width: '290px' }}>
+                        <div>Achievable Month 1 Weight:</div>
+                        <div className='text-success'>{weight - 5}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
               :
               null
             }
+            <div className='text-left text-justify my-5'>
+              Thousands of members in our community have achieved amazing results by following unique plans generated by our KetoNalysis software. Over the past 5 years we have perfected our system, and are continually helping people around the world achieve the lifestyle and health they have always dreamed of!
+            </div>
             <div className='row'>
               {comments.map((item, index) =>
-                <div className='col-md-4 mb-4 d-flex align-items-stretch' key={index}>
+                <div className='col-lg-4 mb-4 d-flex align-items-stretch' key={index}>
                   <div className='bg-dark'>
                     <div className='p-2'>BEFORE AFTER</div>
                     <div className='px-2'>
-                      <img className='img-fluid' alt='SETIMAGe' src={item.image} />
+                      <img className='img-fluid' alt='SETIMAGE' height='100' src={item.image} />
                     </div>
                     <div className='font-12 text-justify p-2'>
                       {item.text}

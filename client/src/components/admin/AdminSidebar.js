@@ -114,7 +114,6 @@ const AdminSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
         </div>
 
         <div className='signoutLink top-border p-2 pt-3'>
-          
           <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'settings' ? 'selected' : '')} onClick={() => goPage('settings')}>
             <div className='d-flex align-items-center'>
               <div><img src={settingsImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>

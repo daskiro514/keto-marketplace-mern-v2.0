@@ -125,6 +125,14 @@ hr {
   min-height: 100vh;
 }
 
+.rounded-xl {
+  border-radius: 10px;
+}
+
+.bg-black {
+  background-color: #111;
+}
+
 .bg-login .form-label {
   text-decoration: none;
   color: white;
