@@ -548,3 +548,18 @@ form .form-label {
 .get-diet-result .apexcharts-legend-text {
   color: white !important;
 }
+
+#myProgressBar {
+  background-color: transparent;
+}
+
+#myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
