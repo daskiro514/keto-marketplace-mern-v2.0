@@ -74,6 +74,7 @@ const comments = [
 const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
 
   const [result, setResult] = React.useState(null)
+  const [showChart, setShowChart] = React.useState(false)
   const [BMI, setBMI] = React.useState(0)
   const [dailyWaterIntake, setDailyWaterIntake] = React.useState(0)
 
@@ -197,6 +198,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
         clearInterval(id)
         elem1.style.display = 'none'
         elem2.style.display = 'block'
+        setShowChart(true)
       } else {
         counter++
       }
@@ -349,7 +351,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
         <div className='my-3 row text-white'>
           <div className='col-md-2'></div>
           <div className='col-md-8'>
-            {result
+            {result && showChart
               ?
               <div className='mb-5 row justify-content-center'>
                 <div className='d-inline-block p-3'>
