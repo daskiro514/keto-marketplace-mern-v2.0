@@ -191,9 +191,9 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
   const screenChange = () => {
     var elem1 = document.getElementById('loadingPage')
     var elem2 = document.getElementById('mainPage')
-    var id = setInterval(frame, 1000)
+    var id = setInterval(frame, 100)
     function frame() {
-      if (counter >= 5) {
+      if (counter >= 45) {
         clearInterval(id)
         elem1.style.display = 'none'
         elem2.style.display = 'block'

@@ -6,10 +6,10 @@ import { setMeasurement } from '../../actions/diet'
 const GetDiet12Measurement = ({ gender, setMeasurement }) => {
   const history = useHistory()
 
-  const [age, setAge] = React.useState(27)
-  const [height, setHeight] = React.useState(170)
-  const [weight, setWeight] = React.useState(65)
-  const [desiredWeight, setDesiredWeight] = React.useState(75)
+  const [age, setAge] = React.useState()
+  const [height, setHeight] = React.useState()
+  const [weight, setWeight] = React.useState()
+  const [desiredWeight, setDesiredWeight] = React.useState()
   const [measureType, setMeasureType] = React.useState('metric')
 
   const changeMeasureType = type => {
