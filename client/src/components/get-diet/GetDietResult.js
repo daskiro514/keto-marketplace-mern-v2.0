@@ -137,7 +137,8 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
       "font-size": 18,
       "font-family": "Arial"
     })
-    text.appendChild(document.createTextNode(phrase + "..."))
+    // text.appendChild(document.createTextNode(phrase + "..."))
+    text.appendChild(document.createTextNode(phrase))
     return text
   }
   function createCheckSvg(yOffset, index) {
@@ -209,8 +210,8 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
     var phrases = [
       "Aggregating the data and developing a hypothesis",
       "Implementing goals and creating a strategy",
-      "Performing thorough investigation of metabolic habits",
-      "Compiling the best Meal Plan according to your lifestyle",
+      "Performing investigation of metabolic habits",
+      "Compiling the best Meal Plan for you",
       "Calibrating your Meta-Analysis",
     ]
     addPhrasesToDocument(phrases)
