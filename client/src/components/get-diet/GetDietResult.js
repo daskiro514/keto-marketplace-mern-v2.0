@@ -264,7 +264,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
   return (
     <div className='get-diet-result'>
       <div id='loadingPage' className='row justify-content-center'>
-        <div id="page">
+        <div id="page" className='col-12'>
           <div id="phrase_box">
             <svg width="100%" height="100%">
               <defs>

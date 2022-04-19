@@ -1000,8 +1000,8 @@ form .form-label {
   display: flex;
   flex-flow: column;
   height: 150px;
-  overflow: hidden;
-  width: 260px;
+  /* overflow: hidden; */
+  width: 460px;
 }
 
 #phrases {
