@@ -39,7 +39,7 @@ const GetDiet7Goals = ({ gender, setGoalList }) => {
             <div key={index} className='text-center my-3 cursor-pointer'>
               <button className='font-24 p-2 btn-wrapper' onClick={() => setGoalArray(index)}>
                 {goalList[index]}
-                {item ? <i className='fa fa-check-square-o ml-3 text-success'></i> : null}
+                {item ? <i className='fa fa-check-square-o ml-3 text-white'></i> : null}
               </button>
             </div>
           )}

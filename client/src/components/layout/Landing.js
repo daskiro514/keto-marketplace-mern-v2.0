@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import logo from '../../img/logo.PNG'
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -10,26 +11,32 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <div className='bg-landing container-fluid'>
-      <div className='mt-5 landing-logo text-center text-white h1'>
-        <div>
-          Customer Keto Diet
+      <div className='row'>
+        <div className='col-md-4'></div>
+        <div className='col-md-4'>
+          <br />
+          <br />
+          <div className='text-center'>
+            <img alt="SETIMG" src={logo} className='img-fluid' />
+          </div>
         </div>
+        <div className='col-md-4'></div>
       </div>
       <div className='row'>
         <div className='col-md-4'></div>
         <div className='col-md-4'>
-          <div className='header text-center mt-5'>
-            <div className='mb-3'>
+          <div className='header text-center' style={{marginTop: '10vh'}}>
+            <div className='mb-3 btn-wrapper'>
               <Link to='/get-diet' className='btn rounded-pill'>
                 Get Diet
               </Link>
             </div>
-            <div className='mb-3'>
+            <div className='mb-3 btn-wrapper'>
               <Link to='/login' className='btn rounded-pill'>
                 Login
               </Link>
             </div>
-            <div className='mb-3'>
+            <div className='mb-3 btn-wrapper'>
               <Link to='/register' className='btn rounded-pill'>
                 Sign Up
               </Link>

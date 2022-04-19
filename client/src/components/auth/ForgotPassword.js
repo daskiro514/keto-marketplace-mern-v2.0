@@ -22,17 +22,15 @@ const ForgotPassword = ({ forgotPassword }) => {
   return (
     <div className='container-fluid bg-login'>
       <div className='row'>
-        <div className='col-md-2'></div>
-        <div className='col-md-8'>
-          <br />
-          <br />
+        <div className='col-md-4'></div>
+        <div className='col-md-4'>
           <br />
           <br />
           <div className='text-center'>
-            <img alt="SETIMG" src={logo} className='img-fluid' />
+            <Link to='/'><img alt="SETIMG" src={logo} className='img-fluid' /></Link>
           </div>
         </div>
-        <div className='col-md-2'></div>
+        <div className='col-md-4'></div>
       </div>
       <div className='row'>
         <div className='col-lg-4 col-md-3'></div>

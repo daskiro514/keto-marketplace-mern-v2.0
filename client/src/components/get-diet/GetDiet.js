@@ -16,14 +16,15 @@ import GetDiet10Describe from './GetDiet10Describe'
 import GetDiet11BodyFat from './GetDiet11BodyFat'
 import GetDiet12Measurement from './GetDiet12Measurement'
 import GetDietResult from './GetDietResult'
+import logo from '../../img/logo.PNG'
 
 const GetDiet = () => {
 
   return (
     <div className='get-diet container-fluid'>
-      <div className='get-diet-logo text-center'>
+      <div className='get-diet-logo text-center mt-2'>
         <Link to='/'>
-          <img alt='SETIMAGE' src={ketologo} className='img-fluid my-4' />
+          <img alt="SETIMG" src={logo} className='img-fluid' width='200' />
         </Link>
       </div>
       <Router basename="/get-diet">

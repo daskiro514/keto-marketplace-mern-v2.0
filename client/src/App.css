@@ -486,19 +486,21 @@ form .form-label {
 
 .bg-landing {
   position: relative;
-  background: url('./img/customer/customerbackground.jpg') no-repeat center center/cover;
+  background: url('./img/customer/customerbackground.jpg') no-repeat center center fixed; 
+  background-size: 100% 100%;
   min-height: 100vh;
 }
 
 .bg-landing .header .btn {
   color: white;
-  background: linear-gradient(180deg, #4200FF 0%, #1C006C 100%);
+  /* background: linear-gradient(180deg, #4200FF 0%, #1C006C 100%); */
   min-width: 90%;
 }
 
 .get-diet {
   position: relative;
-  background: url('./img/customer/customerbackground.jpg') no-repeat center center/cover;
+  background: url('./img/customer/customerbackground.jpg') no-repeat center center fixed;
+  background-size: 100% 100%;
   min-height: 100vh;
 }
 
@@ -515,13 +517,15 @@ form .form-label {
 .btn-wrapper {
   margin: auto;
   width: 80%;
-  background: linear-gradient(90deg, #0284fe 0%, #0df5d2 100%);
+  background: linear-gradient(90deg, #00639A 0%, #CA255B 100%);
+  color: white;
   padding: 2px;
   border-radius: 50rem;
 }
 
 .custom-gradient {
-  background: #212d3b;
+  /* background: #212d3b; */
+  background: linear-gradient(90deg, #00639A 0%, #CA255B 100%);
   width: 100%;
   height: 100%;
   border-radius: 50rem;
