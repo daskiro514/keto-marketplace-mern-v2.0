@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import core from '../../utils/keto-diet-buddy-core';
+import core from '../../utils/keto-diet-buddy-core'
 
 import fatImage from '../../img/customer/fat.png'
 import energyImage from '../../img/customer/energy.png'
@@ -99,35 +99,34 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
     setBMI((weight / (height / 100) ** 2).toFixed(1))
 
     setResult(result.desirable)
-    // setSeries([result.desirable.percEnergyNetCarbs, result.desirable.percEnergyProtein, result.desirable.percEnergyFat])
   }, [activityLevel, age, bodyfat, desiredWeight, gender, height, weight])
 
-  var checkmarkIdPrefix = "loadingCheckSVG-";
-  var checkmarkCircleIdPrefix = "loadingCheckCircleSVG-";
-  var verticalSpacing = 50;
+  var checkmarkIdPrefix = "loadingCheckSVG-"
+  var checkmarkCircleIdPrefix = "loadingCheckCircleSVG-"
+  var verticalSpacing = 50
 
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
+      var j = Math.floor(Math.random() * (i + 1))
+      var temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
     }
-    return array;
+    return array
   }
 
   function createSVG(tag, properties, opt_children) {
-    var newElement = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    var newElement = document.createElementNS("http://www.w3.org/2000/svg", tag)
     var _keys = Object.keys(properties)
     _keys.forEach(key => {
-      newElement.setAttribute(key, properties[key]);
+      newElement.setAttribute(key, properties[key])
     })
     if (opt_children) {
       opt_children.forEach(function (child) {
-        newElement.appendChild(child);
-      });
+        newElement.appendChild(child)
+      })
     }
-    return newElement;
+    return newElement
   }
 
   function createPhraseSvg(phrase, yOffset) {
@@ -137,9 +136,9 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
       y: yOffset,
       "font-size": 18,
       "font-family": "Arial"
-    });
-    text.appendChild(document.createTextNode(phrase + "..."));
-    return text;
+    })
+    text.appendChild(document.createTextNode(phrase + "..."))
+    return text
   }
   function createCheckSvg(yOffset, index) {
     var check = createSVG("polygon", {
@@ -147,44 +146,44 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
         "21.661,7.643 13.396,19.328 9.429,15.361 7.075,17.714 13.745,24.384 24.345,9.708 ",
       fill: "rgba(255,255,255,1)",
       id: checkmarkIdPrefix + index
-    });
+    })
     var circle_outline = createSVG("path", {
       d:
         "M16,0C7.163,0,0,7.163,0,16s7.163,16,16,16s16-7.163,16-16S24.837,0,16,0z M16,30C8.28,30,2,23.72,2,16C2,8.28,8.28,2,16,2 c7.72,0,14,6.28,14,14C30,23.72,23.72,30,16,30z",
       fill: "white"
-    });
+    })
     var circle = createSVG("circle", {
       id: checkmarkCircleIdPrefix + index,
       fill: "rgba(255,255,255,0)",
       cx: 16,
       cy: 16,
       r: 15
-    });
+    })
     var group = createSVG(
       "g",
       {
         transform: "translate(10 " + (yOffset - 20) + ") scale(.9)"
       },
       [circle, check, circle_outline]
-    );
-    return group;
+    )
+    return group
   }
 
   function addPhrasesToDocument(phrases) {
     phrases.forEach(function (phrase, index) {
-      var yOffset = 30 + verticalSpacing * index;
+      var yOffset = 30 + verticalSpacing * index
       document
         .getElementById("phrases")
-        .appendChild(createPhraseSvg(phrase, yOffset));
+        .appendChild(createPhraseSvg(phrase, yOffset))
       document
         .getElementById("phrases")
-        .appendChild(createCheckSvg(yOffset, index));
-    });
+        .appendChild(createCheckSvg(yOffset, index))
+    })
   }
 
   function easeInOut(t) {
-    var period = 200;
-    return (Math.sin(t / period + 100) + 1) / 2;
+    var period = 200
+    return (Math.sin(t / period + 100) + 1) / 2
   }
 
   var counter = 0
@@ -207,32 +206,32 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
 
   React.useEffect(() => {
     screenChange()
-    var phrases = shuffleArray([
+    var phrases = [
+      "Aggregating the data and developing a hypothesis",
+      "Implementing goals and creating a strategy",
+      "Performing thorough investigation of metabolic habits",
+      "Compiling the best Meal Plan according to your lifestyle",
       "Calibrating your Meta-Analysis",
-      "Compiling the best Meal Plan for your lifestyle",
-      "Loading sentence 1",
-      "Loading sentence 2",
-      "Loading sentence 3",
-    ]);
-    addPhrasesToDocument(phrases);
-    var start_time = new Date().getTime();
-    var upward_moving_group = document.getElementById("phrases");
-    upward_moving_group.currentY = 0;
+    ]
+    addPhrasesToDocument(phrases)
+    var start_time = new Date().getTime()
+    var upward_moving_group = document.getElementById("phrases")
+    upward_moving_group.currentY = 0
     var checks = phrases.map(function (_, i) {
       return {
         check: document.getElementById(checkmarkIdPrefix + i),
         circle: document.getElementById(checkmarkCircleIdPrefix + i)
-      };
-    });
+      }
+    })
     function animateLoading() {
-      var now = new Date().getTime();
+      var now = new Date().getTime()
       upward_moving_group.setAttribute(
         "transform",
         "translate(0 " + upward_moving_group.currentY + ")"
-      );
-      upward_moving_group.currentY -= 1.35 * easeInOut(now);
+      )
+      upward_moving_group.currentY -= 1.35 * easeInOut(now)
       checks.forEach(function (check, i) {
-        var color_change_boundary = -i * verticalSpacing + verticalSpacing + 15;
+        var color_change_boundary = -i * verticalSpacing + verticalSpacing + 15
         if (upward_moving_group.currentY < color_change_boundary) {
           var alpha = Math.max(
             Math.min(
@@ -241,20 +240,20 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
               1
             ),
             0
-          );
-          check.circle.setAttribute("fill", "rgba(255, 255, 255, " + alpha + ")");
+          )
+          check.circle.setAttribute("fill", "rgba(255, 255, 255, " + alpha + ")")
           var check_color = [
             Math.round(255 * (1 - alpha) + 120 * alpha),
             Math.round(255 * (1 - alpha) + 154 * alpha)
-          ];
+          ]
           check.check.setAttribute(
             "fill",
             "rgba(255, " + check_color[0] + "," + check_color[1] + ", 1)"
-          );
+          )
         }
-      });
+      })
       if (now - start_time < 30000 && upward_moving_group.currentY > -710) {
-        requestAnimationFrame(animateLoading);
+        requestAnimationFrame(animateLoading)
       }
     }
   }, [])
@@ -297,7 +296,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
             <div className='font-36 font-weight-800'>Your Keto Analysis is complete!</div>
             <div className='text-left text-white font-18'>
               <div className='my-1'>
-                <span className='text-success'>Success Probability </span>: Expremely high compatibility with a ketogenic program; high success expected
+                <span className='text-success'>Success Probability </span>: Expremely high compatibility with a ketogenic program high success expected
               </div>
               <div className='my-1'>
                 <span className='text-success'>Similar Demographic Success Rate </span>: 95 - 98%
