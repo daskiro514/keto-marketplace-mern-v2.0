@@ -646,7 +646,14 @@ form .form-label {
 .structure {
   transform: translate3d(0, 0, 0);
   perspective: 1000px;
-  animation: shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+  animation: shake 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.57) both infinite;
+}
+
+@media (max-width: 769px) {
+  .structure {
+    display: flex;
+    justify-content: end;
+  }
 }
 
 .text-container {
@@ -669,6 +676,21 @@ form .form-label {
   position: absolute;
   top: -112px;
   transform: rotate(90deg);
+  width: 224px;
+}
+
+@media (max-width: 1200px) {
+  #rocket-svg {
+    width: 170px;
+  }
+}
+
+@media (max-width: 769px) {
+  #rocket-svg {
+    width: 100px;
+    height: 300px;
+    top: -85px;
+  }
 }
 
 #right-wing, #left-wing, #nose, #window-stroke, #middle-wing {
