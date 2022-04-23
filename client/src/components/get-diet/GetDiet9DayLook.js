@@ -13,8 +13,8 @@ const GetDiet9DayLook = ({ gender }) => {
         <div className='text-secondary font-18 my-1'>What does a day look like for you?</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
           <div className='text-center my-3 cursor-pointer'>
             <div className="btn-wrapper">
               <Link to='/quiz-10'>
@@ -61,7 +61,7 @@ const GetDiet9DayLook = ({ gender }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )

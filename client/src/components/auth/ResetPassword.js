@@ -17,15 +17,15 @@ const ForgotPassword = ({ match, resetPassword }) => {
   return (
     <div className='container-fluid bg-login'>
       <div className='row'>
-        <div className='col-md-4'></div>
-        <div className='col-md-4'>
+        <div className='col-md-3'></div>
+        <div className='col-md-6'>
           <br />
           <br />
-          <div className='text-center'>
-            <Link to='/'><img alt="SETIMG" src={logo} className='img-fluid' /></Link>
+          <div className='w-75 mx-auto'>
+            <img alt="SETIMG" src={logo} className='img-fluid' />
           </div>
         </div>
-        <div className='col-md-4'></div>
+        <div className='col-md-3'></div>
       </div>
       <div className='row'>
         <div className='col-lg-4 col-md-3'></div>

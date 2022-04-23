@@ -15,23 +15,25 @@ const GetDiet3Experience = ({ gender }) => {
         <div className='text-secondary font-18 my-1'>Have you ever tried a keto diet?</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6 row align-items-center'>
-          <div className='col-md-5 text-center gender-circle my-5'>
-            <Link to='/quiz-6'>
-              <img alt='SETIMAGE' src={yesImage} className='img-fluid gender-image' />
-            </Link>
-          </div>
-          <div className='col-md-2 text-center'>
-            OR
-          </div>
-          <div className='col-md-5 text-center gender-circle my-5'>
-            <Link to='/quiz-3'>
-              <img alt='SETIMAGE' src={noImage} className='img-fluid gender-image' />
-            </Link>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
+          <div className='row align-items-center'>
+            <div className='col-5 text-center gender-circle my-2'>
+              <Link to='/quiz-6'>
+                <img alt='SETIMAGE' src={yesImage} className='img-fluid gender-image' />
+              </Link>
+            </div>
+            <div className='col-2 text-center'>
+              OR
+            </div>
+            <div className='col-5 text-center gender-circle my-2'>
+              <Link to='/quiz-3'>
+                <img alt='SETIMAGE' src={noImage} className='img-fluid gender-image' />
+              </Link>
+            </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )

@@ -36,6 +36,12 @@ hr {
   font-size: 18px !important;
 }
 
+@media (max-width: 700px) {
+  .font-18 {
+    font-size: 15px !important;
+  }
+}
+
 .font-19 {
   font-size: 19px !important;
 }
@@ -52,10 +58,30 @@ hr {
   font-size: 24px !important;
 }
 
+@media (max-width: 900px) {
+  .font-24 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .font-24 {
+    font-size: 15px !important;
+  }
+}
+
 .font-36 {
   font-size: 36px !important;
   font: bold;
 }
+
+@media (max-width: 700px) {
+  .font-36 {
+    font-size: 27px !important;
+    font: bold;
+  }
+}
+
 
 .font-bold {
   font-weight: bold !important;
@@ -94,10 +120,6 @@ hr {
     margin-top: 30px;
     margin-bottom: 10px;
     width: 100% !important;
-  }
-
-  .font-36 {
-    font-size: 30px !important;
   }
 }
 
@@ -486,7 +508,7 @@ form .form-label {
 
 .bg-landing {
   position: relative;
-  background: url('./img/customer/customerbackground.jpg') no-repeat center center fixed; 
+  background: url('./img/customer/customerbackground.jpg') no-repeat center center fixed;
   background-size: 100% 100%;
   min-height: 100vh;
 }
@@ -502,6 +524,22 @@ form .form-label {
   background: url('./img/customer/customerbackground.jpg') no-repeat center center fixed;
   background-size: 100% 100%;
   min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .bg-landing {
+    position: relative;
+    background: url('./img/customer/customerbackground-mobile.jpg') no-repeat center center fixed;
+    background-size: 100% 100%;
+    min-height: 100vh;
+  }
+
+  .get-diet {
+    position: relative;
+    background: url('./img/customer/customerbackground-mobile.jpg') no-repeat center center fixed;
+    background-size: 100% 100%;
+    min-height: 100vh;
+  }
 }
 
 .gender-circle .gender-image {
@@ -552,6 +590,18 @@ form .form-label {
 .get-diet-result .apexcharts-legend-text {
   color: white !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 #myProgressBar {
   background-color: transparent;

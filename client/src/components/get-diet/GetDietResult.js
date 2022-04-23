@@ -553,7 +553,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
             </div>
             <div className='row'>
               {comments.map((item, index) =>
-                <div className='col-lg-4 mb-4 d-flex align-items-stretch' key={index}>
+                <div className='col-lg-4 col-md-6 mb-4 d-flex align-items-stretch' key={index}>
                   <div className='bg-dark'>
                     <div className='p-2'>BEFORE AFTER</div>
                     <div className='px-2'>

@@ -33,8 +33,8 @@ const GetDiet7Goals = ({ gender, setGoalList }) => {
         <div className='text-secondary font-18 my-1'>Out of these choices what are your primary goals or interests in optimising your eating habits?</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
           {goals.map((item, index) =>
             <div key={index} className='text-center my-3 cursor-pointer'>
               <button className='font-24 p-2 btn-wrapper' onClick={() => setGoalArray(index)}>
@@ -53,7 +53,7 @@ const GetDiet7Goals = ({ gender, setGoalList }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )

@@ -33,8 +33,8 @@ const GetDiet10Describe = ({ gender, setDescribeList }) => {
         <div className='text-secondary font-18 my-1'>Which of the following describes you? (answer as many as you like)</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
           {describes.map((item, index) =>
             <div key={index} className='text-center my-3 cursor-pointer'>
               <button className='font-24 p-2 btn-wrapper' onClick={() => setDescribeArray(index)}>
@@ -53,7 +53,7 @@ const GetDiet10Describe = ({ gender, setDescribeList }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )

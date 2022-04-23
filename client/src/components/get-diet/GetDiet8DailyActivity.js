@@ -16,8 +16,8 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
         <div className='text-secondary font-18 my-1'>What is your daily activity level?</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
           <div className='text-center my-3 cursor-pointer'>
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(0.2)}>
@@ -40,7 +40,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             <div className="btn-wrapper">
               <Link to='/quiz-9' onClick={() => setActivityLevel(0.6)}>
                 <div className='font-24 p-2 custom-gradient'>
-                  Consistant gym / fitness 3-4 days a week
+                  Consistant gym 3-4 days a week
                 </div>
               </Link>
             </div>
@@ -64,7 +64,7 @@ const GetDiet8DailyActivity = ({ gender, setActivityLevel }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )

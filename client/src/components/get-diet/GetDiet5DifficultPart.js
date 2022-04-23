@@ -21,8 +21,8 @@ const GetDiet5DifficultPart = ({ gender }) => {
         <div className='text-secondary font-18 my-1'>What did you find difficult part about the keto diet.  Choose all that apply:</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
           <div className='text-center my-3 cursor-pointer'>
             <button className='font-24 p-2 btn-wrapper' onClick={() => setDifficulty1(!difficulty1)}>
               I found it restrictive
@@ -69,7 +69,7 @@ const GetDiet5DifficultPart = ({ gender }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )

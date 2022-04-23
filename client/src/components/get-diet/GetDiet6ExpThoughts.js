@@ -13,8 +13,8 @@ const GetDiet6ExpThoughts = ({ gender }) => {
         <div className='text-secondary font-18 my-1'>Did you love the Keto Diet or Did you find it challenging?</div>
       </div>
       <div className='my-3 row text-white'>
-        <div className='col-md-3'></div>
-        <div className='col-md-6'>
+        <div className='col-lg-3'></div>
+        <div className='col-lg-6'>
           <div className='text-center my-5 cursor-pointer'>
             <div className="btn-wrapper">
               <Link to='/quiz-7'>
@@ -34,7 +34,7 @@ const GetDiet6ExpThoughts = ({ gender }) => {
             </div>
           </div>
         </div>
-        <div className='col-md-3'></div>
+        <div className='col-lg-3'></div>
       </div>
     </div>
   )
