@@ -19,8 +19,8 @@ const GetDietGender = ({ gender, setGender }) => {
       function frame() {
         if (width >= 100) {
           clearInterval(id)
-          // rocket.style.display = 'none'
-          // elem2.style.display = 'block'
+          rocket.style.display = 'none'
+          elem2.style.display = 'block'
           i = 0
         } else {
           width++
