@@ -105,16 +105,6 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
   var checkmarkCircleIdPrefix = "loadingCheckCircleSVG-"
   var verticalSpacing = 50
 
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1))
-      var temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
-    }
-    return array
-  }
-
   function createSVG(tag, properties, opt_children) {
     var newElement = document.createElementNS("http://www.w3.org/2000/svg", tag)
     var _keys = Object.keys(properties)
@@ -539,7 +529,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
                       </div>
                       <div className='position-absolute' style={{ top: '260px', width: '290px' }}>
                         <div>Achievable Month 1 Weight:</div>
-                        <div className='text-success'>{weight - 5}</div>
+                        <div className='text-success'>{Math.round(weight - 5)} Kg</div>
                       </div>
                     </div>
                   </div>

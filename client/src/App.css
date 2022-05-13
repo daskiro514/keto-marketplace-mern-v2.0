@@ -526,7 +526,7 @@ form .form-label {
   min-height: 100vh;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .bg-landing {
     position: relative;
     background: url('./img/customer/customerbackground-mobile.jpg') no-repeat center center fixed;
@@ -540,6 +540,10 @@ form .form-label {
     background-size: 100% 100%;
     min-height: 100vh;
   }
+}
+
+.get-diet .text-secondary {
+  color: #d7d7d7 !important;
 }
 
 .gender-circle .gender-image {

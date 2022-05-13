@@ -29,7 +29,7 @@ const GetDiet2CurrentFollowing = ({ gender }) => {
               OR
             </div>
             <div className='col-5 text-center gender-circle my-2'>
-              <Link to='/quiz-4'>
+              <Link to='/quiz-7'>
                 <img alt='SETIMAGE' src={noImage} className='img-fluid gender-image' />
               </Link>
             </div>
