@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import { clientRegisterSelf } from '../../actions/auth'
+import { setAlert } from '../../actions/alert'
 import core from '../../utils/keto-diet-buddy-core'
 
 import fatImage from '../../img/customer/fat.png'
@@ -71,7 +73,7 @@ const comments = [
   }
 ]
 
-const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
+const GetDietResult = ({ setAlert, clientRegisterSelf, clientRegistered, diet: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
 
   const [result, setResult] = React.useState(null)
   const [showChart, setShowChart] = React.useState(false)
@@ -131,6 +133,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
     text.appendChild(document.createTextNode(phrase))
     return text
   }
+
   function createCheckSvg(yOffset, index) {
     var check = createSVG("polygon", {
       points:
@@ -172,11 +175,6 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
     })
   }
 
-  function easeInOut(t) {
-    var period = 200
-    return (Math.sin(t / period + 100) + 1) / 2
-  }
-
   var counter = 0
 
   const screenChange = () => {
@@ -205,53 +203,36 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
       "Calibrating your Meta-Analysis",
     ]
     addPhrasesToDocument(phrases)
-    var start_time = new Date().getTime()
     var upward_moving_group = document.getElementById("phrases")
     upward_moving_group.currentY = 0
-    var checks = phrases.map(function (_, i) {
+    phrases.map(function (_, i) {
       return {
         check: document.getElementById(checkmarkIdPrefix + i),
         circle: document.getElementById(checkmarkCircleIdPrefix + i)
       }
     })
-    function animateLoading() {
-      var now = new Date().getTime()
-      upward_moving_group.setAttribute(
-        "transform",
-        "translate(0 " + upward_moving_group.currentY + ")"
-      )
-      upward_moving_group.currentY -= 1.35 * easeInOut(now)
-      checks.forEach(function (check, i) {
-        var color_change_boundary = -i * verticalSpacing + verticalSpacing + 15
-        if (upward_moving_group.currentY < color_change_boundary) {
-          var alpha = Math.max(
-            Math.min(
-              1 -
-              (upward_moving_group.currentY - color_change_boundary + 15) / 30,
-              1
-            ),
-            0
-          )
-          check.circle.setAttribute("fill", "rgba(255, 255, 255, " + alpha + ")")
-          var check_color = [
-            Math.round(255 * (1 - alpha) + 120 * alpha),
-            Math.round(255 * (1 - alpha) + 154 * alpha)
-          ]
-          check.check.setAttribute(
-            "fill",
-            "rgba(255, " + check_color[0] + "," + check_color[1] + ", 1)"
-          )
-        }
-      })
-      if (now - start_time < 30000 && upward_moving_group.currentY > -710) {
-        requestAnimationFrame(animateLoading)
-      }
-    }
   }, [])
+
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [rpassword, setRpassword] = React.useState('')
+
+  const onSubmit = e => {
+    e.preventDefault()
+    if (password !== rpassword) {
+      setAlert('Passwords are not correct!', 'warning')
+      return
+    }
+
+    clientRegisterSelf({ name, email, password, gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes })
+  }
 
   if (!gender) {
     return <Redirect to='/' />
   }
+
+  if (clientRegistered) return <Redirect to='/reserve' />
 
   return (
     <div className='get-diet-result'>
@@ -559,6 +540,63 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
               )}
             </div>
             <div>See what the hype is all about! Click the link below to see exactly how thousands of others achieved success through the Keto Analysis program!</div>
+            <div className='mt-5 mb-3'>
+              <button className='btn bg-keto-success text-white font-24 font-weight-bold px-4 py-3'>
+                SHOW ME THE PROGRAM
+              </button>
+              <div className='mt-4 mb-4 p-3 bg-black rounded-lg shadow'>
+                <form className='form' onSubmit={onSubmit}>
+                  <div className='text-keto-success font-24 mb-4'>Where Should We Send Your Full Report?</div>
+                  <div className='my-3'>
+                    <input
+                      className='form-control'
+                      placeholder='Enter Name Here'
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className='my-3'>
+                    <input
+                      type='email'
+                      className='form-control'
+                      placeholder='Enter Email Here'
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className='my-3'>
+                    <input
+                      type='password'
+                      className='form-control'
+                      placeholder='Enter Password Here'
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      required
+                      minLength='6'
+                    />
+                  </div>
+                  <div className='my-3'>
+                    <input
+                      type='password'
+                      className='form-control'
+                      placeholder='Confirm Pasword'
+                      value={rpassword}
+                      onChange={e => setRpassword(e.target.value)}
+                      required
+                      minLength={6}
+                    />
+                  </div>
+                  <div className='my-3'>
+                    <button className='form-control bg-keto-success text-white font-weight-bold'>
+                      Submit
+                    </button>
+                    <div className='mt-2'>We'll create you your own account that you can come back and access anytime.</div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
           <div className='col-md-2'></div>
         </div>
@@ -569,6 +607,7 @@ const GetDietResult = ({ diet: { gender, bodyfat, activityLevel, age, height, we
 
 const mapStateToProps = state => ({
   diet: state.diet,
+  clientRegistered: state.auth.clientRegistered
 })
 
-export default connect(mapStateToProps, {})(GetDietResult)
+export default connect(mapStateToProps, { clientRegisterSelf, setAlert })(GetDietResult)

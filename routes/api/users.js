@@ -65,6 +65,33 @@ router.post('/clientRegister', async (req, res) => {
   })
 })
 
+router.post('/clientRegisterSelf', async (req, res) => {
+  const { name, email, password, gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } = req.body
+
+  let user = await User.findOne({ email })
+
+  if (user) {
+    return res
+      .status(400)
+      .json({ errors: [{ msg: 'Email already exists' }] })
+  }
+
+  const avatar = normalize(gravatar.url(email, { s: '200', r: 'pg', d: 'mm' }), { forceHttps: true })
+
+  user = new User({ type: 'customer', name, email, avatar, passwordForUpdate: password, gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes })
+
+  const salt = await bcrypt.genSalt(10)
+
+  user.password = await bcrypt.hash(password, salt)
+
+  await user.save()
+
+  res.json({
+    success: true,
+    user
+  })
+})
+
 router.post('/affiliateRegister', async (req, res) => {
   const tempUser = await User.findOne({ _id: req.body.affiliateID })
 
@@ -189,7 +216,7 @@ router.get('/updateAffiliateConnectedAccount/:id', async (req, res) => {
       subject: 'KETO TEAM: Update Link Send',
       text: `Hi ${pendingAffiliate.name}. You need to provide more information to be approved as a AFFILIATE of KETO. We send you the update link. ${accountLink.url} We will let you know again when you have completed the updates. KETO Team.`
     }
-  
+
     mailgun.messages().send(emailContentToAffiliate, function (error, body) {
       console.log(body)
     })

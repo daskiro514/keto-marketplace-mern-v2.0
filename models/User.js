@@ -33,6 +33,44 @@ const UserSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
+  gender: {
+    type: String
+  },
+  bodyfat: {
+    type: Number
+  },
+  activityLevel: {
+    type: Number
+  },
+  age: {
+    type: Number
+  },
+  height: {
+    type: Number
+  },
+  weight: {
+    type: Number
+  },
+  desiredWeight: {
+    type: Number
+  },
+  goals: [],
+  describes: [],
+  stripeCustomerID: {
+    type: String
+  },
+  customerStatus: {
+    type: String
+  },
+  stripeSubscription: {
+    type: String
+  },
+  subscriptionStartDate: {
+    type: Number
+  },
+  subscriptionEndDate: {
+    type: Number
+  },
   // AFFILIATE
   brand: {
     type: String

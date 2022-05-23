@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import GetDietGender from './GetDiet1Gender'
 import GetDiet2CurrentFollowing from './GetDiet2CurrentFollowing'
 import GetDiet3Difficulty from './GetDiet3Difficulty'
-import ketologo from '../../img/customer/ketologo.png'
 import GetDiet3Experience from './GetDiet4Experience'
 import GetDiet5DifficultPart from './GetDiet5DifficultPart'
 import GetDiet6ExpThoughts from './GetDiet6ExpThoughts'
@@ -16,7 +15,9 @@ import GetDiet10Describe from './GetDiet10Describe'
 import GetDiet11BodyFat from './GetDiet11BodyFat'
 import GetDiet12Measurement from './GetDiet12Measurement'
 import GetDietResult from './GetDietResult'
+import GetDietResultWant from './GetDietResultWant'
 import logo from '../../img/logo.PNG'
+import GetDietPayment from './GetDietPayment'
 
 const GetDiet = () => {
 
@@ -42,6 +43,8 @@ const GetDiet = () => {
         <Route exact path="/quiz-11" component={GetDiet11BodyFat} />
         <Route exact path="/quiz-12" component={GetDiet12Measurement} />
         <Route exact path="/result" component={GetDietResult} />
+        <Route exact path="/reserve" component={GetDietResultWant} />
+        <Route exact path="/payment/:id" component={GetDietPayment} />
       </Router>
     </div>
   )

@@ -67,6 +67,7 @@ const Login = ({ login, isAuthenticated }) => {
                         className='form-control'
                         value={password}
                         onChange={onChange}
+                        required
                         minLength='6'
                       />
                     </div>

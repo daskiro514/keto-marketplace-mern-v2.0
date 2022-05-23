@@ -10,6 +10,8 @@ import {
   AFFILIATE_REGISTER_SUCCESS,
   PENDING_AFFILIATE_LOADED,
   UPDATE_AFFILIATE_CONNECTED_ACCOUNT,
+  // CLIENT REGISTERED BY GET DIET
+  CLIENT_REGISTERED_BY_GET_DIET
 } from '../actions/types'
 
 const initialState = {
@@ -21,6 +23,7 @@ const initialState = {
   connectURL: "",
   pendingAffiliate: {},
   affiliateConnectedAccountUpdateLink: '',
+  clientRegistered: false
 }
 
 function authReducer(state = initialState, action) {
@@ -75,6 +78,11 @@ function authReducer(state = initialState, action) {
       return {
         ...state,
         affiliateConnectedAccountUpdateLink: payload.connectURL
+      }
+    case CLIENT_REGISTERED_BY_GET_DIET: 
+      return {
+        ...state,
+        clientRegistered: payload
       }
     default:
       return state

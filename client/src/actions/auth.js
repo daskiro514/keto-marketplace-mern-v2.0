@@ -11,6 +11,7 @@ import {
   AFFILIATE_REGISTER_SUCCESS,
   PENDING_AFFILIATE_LOADED,
   UPDATE_AFFILIATE_CONNECTED_ACCOUNT,
+  CLIENT_REGISTERED_BY_GET_DIET
 } from './types'
 
 // Load User
@@ -56,8 +57,6 @@ export const register = formData => async dispatch => {
 export const clientRegister = formData => async dispatch => {
   try {
     const res = await api.post('/users/clientRegister', formData)
-    console.log(res.data)
-
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data
@@ -73,6 +72,22 @@ export const clientRegister = formData => async dispatch => {
     dispatch({
       type: REGISTER_FAIL
     })
+  }
+}
+
+export const clientRegisterSelf = formData => async dispatch => {
+  try {
+    const res = await api.post('/users/clientRegisterSelf', formData)
+    dispatch({ 
+      type: CLIENT_REGISTERED_BY_GET_DIET,
+      payload: res.data.user
+    })
+  } catch (err) {
+    const errors = err.response.data.errors
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+    }
   }
 }
 

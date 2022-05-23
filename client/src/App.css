@@ -62,10 +62,16 @@ hr {
   .font-24 {
     font-size: 20px !important;
   }
+  .font-22 {
+    font-size: 19px !important;
+  }
 }
 
 @media (max-width: 700px) {
   .font-24 {
+    font-size: 15px !important;
+  }
+  .font-22 {
     font-size: 15px !important;
   }
 }
@@ -77,7 +83,7 @@ hr {
 
 @media (max-width: 700px) {
   .font-36 {
-    font-size: 27px !important;
+    font-size: 25px !important;
     font: bold;
   }
 }
@@ -273,6 +279,14 @@ table tbody tr td {
 
 .btn-keto-light {
   background-color: lightgray;
+}
+
+.bg-keto-success {
+  background-color: #6cd900;
+}
+
+.text-keto-success {
+  color: #6cd900;
 }
 
 .client-cart hr {
@@ -656,7 +670,7 @@ form .form-label {
 @media (max-width: 769px) {
   .structure {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 }
 
