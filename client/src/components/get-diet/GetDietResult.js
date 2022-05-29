@@ -213,6 +213,8 @@ const GetDietResult = ({ setAlert, clientRegisterSelf, clientRegistered, diet: {
     })
   }, [])
 
+  const [showInputs, setShowInputs] = React.useState(false)
+
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -541,10 +543,13 @@ const GetDietResult = ({ setAlert, clientRegisterSelf, clientRegistered, diet: {
             </div>
             <div>See what the hype is all about! Click the link below to see exactly how thousands of others achieved success through the Keto Analysis program!</div>
             <div className='mt-5 mb-3'>
-              <button className='btn bg-keto-success text-white font-24 font-weight-bold px-4 py-3'>
+              <button
+                className={`btn bg-keto-success text-white font-24 font-weight-bold px-4 py-3 ` + (showInputs === true ? 'd-none' : '')}
+                onClick={() => setShowInputs(true)}
+              >
                 SHOW ME THE PROGRAM
               </button>
-              <div className='mt-4 mb-4 p-3 bg-black rounded-lg shadow'>
+              <div className={`mt-4 mb-4 p-3 bg-black rounded-lg shadow ` + (showInputs === false ? 'd-none' : '')}>
                 <form className='form' onSubmit={onSubmit}>
                   <div className='text-keto-success font-24 mb-4'>Where Should We Send Your Full Report?</div>
                   <div className='my-3'>
