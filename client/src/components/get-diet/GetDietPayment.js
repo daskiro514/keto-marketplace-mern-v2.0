@@ -11,6 +11,7 @@ const GetDietPayment = () => {
   const [expYear, setExpYear] = React.useState('')
   const [cvc, setCvc] = React.useState('')
   const [postalCode, setPostalCode] = React.useState('')
+  const [promotionCode, setPromotionCode] = React.useState('')
 
   const onSubmit = e => {
     e.preventDefault()
@@ -111,6 +112,12 @@ const GetDietPayment = () => {
                       placeholder='ZIP'
                       value={postalCode}
                       onChange={e => setPostalCode(e.target.value)}
+                    />
+                    <input
+                      className='form-control my-2'
+                      placeholder='Promotion Code'
+                      value={promotionCode}
+                      onChange={e => setPromotionCode(e.target.value)}
                     />
                     <button className='form-control bg-keto-success text-white font-weight-bold'>
                       Pay
