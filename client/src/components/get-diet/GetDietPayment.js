@@ -1,7 +1,8 @@
 import React from 'react'
+import { makeDietPayment } from '../../actions/diet'
 import { connect } from 'react-redux'
 
-const GetDietPayment = () => {
+const GetDietPayment = ({ makeDietPayment, client }) => {
 
   const years = ['2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033']
   const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
@@ -15,6 +16,7 @@ const GetDietPayment = () => {
 
   const onSubmit = e => {
     e.preventDefault()
+    makeDietPayment({ clientID: client._id, number, expMonth, expYear, cvc, postalCode, promotionCode })
   }
 
   return (
@@ -140,4 +142,4 @@ const mapStateToProps = state => ({
   client: state.auth.clientRegistered
 })
 
-export default connect(mapStateToProps, {})(GetDietPayment)
+export default connect(mapStateToProps, { makeDietPayment })(GetDietPayment)

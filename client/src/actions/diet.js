@@ -1,3 +1,6 @@
+import api from '../utils/api'
+import { setAlert } from './alert'
+
 export const setGender = gender => async dispatch => {
   dispatch({
     type: 'SET_GENDER',
@@ -38,4 +41,14 @@ export const setDescribeList = describes => async dispatch => {
     type: 'SET_DESCRIBES',
     payload: describes
   })
+}
+
+export const makeDietPayment = formData => async dispatch => {
+  const res = await api.post('/payment/makeDietPayment', formData)
+
+  if (res.data.success) {
+    console.log('success')
+  } else {
+    dispatch(setAlert(res.data.message, 'danger'))
+  }
 }

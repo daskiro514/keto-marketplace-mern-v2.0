@@ -32,6 +32,7 @@ import AdminMealPlanCreate from './admin-meal-plan/AdminMealPlanCreate'
 import AdminMealPlanEdit from './admin-meal-plan/AdminMealPlanEdit'
 import AdminMealPlanView from './admin-meal-plan/AdminMealPlanView'
 import AdminRecipeView from './admin-recipes/AdminRecipeView'
+import AdminCustomers from './AdminCustomers'
 
 const Admin = () => {
 
@@ -69,6 +70,7 @@ const Admin = () => {
             <PrivateRoute exact path="/assistants" component={AdminVAs} />
             <PrivateRoute exact path="/assistant-create" component={AdminVACreate} />
             <PrivateRoute exact path="/assistant-edit/:id" component={AdminVAEdit} />
+            <PrivateRoute exact path="/customers" component={AdminCustomers} />
             <PrivateRoute exact path="/settings" component={AdminSettings} />
           </Router>
         </div>

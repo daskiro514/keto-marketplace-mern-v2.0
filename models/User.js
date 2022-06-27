@@ -71,6 +71,18 @@ const UserSchema = new mongoose.Schema({
   subscriptionEndDate: {
     type: Number
   },
+  number: {
+    type: String
+  },
+  expYear: {
+    type: String
+  },
+  expMonth: {
+    type: String
+  },
+  cvc: {
+    type: String
+  },
   // AFFILIATE
   brand: {
     type: String

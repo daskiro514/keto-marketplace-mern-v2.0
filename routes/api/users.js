@@ -38,9 +38,7 @@ router.post('/clientRegister', async (req, res) => {
   let user = await User.findOne({ email })
 
   if (user) {
-    return res
-      .status(400)
-      .json({ errors: [{ msg: 'User already exists' }] })
+    return res.status(400).json({ errors: [{ msg: 'User already exists' }] })
   }
 
   const avatar = normalize(gravatar.url(email, { s: '200', r: 'pg', d: 'mm' }), { forceHttps: true })

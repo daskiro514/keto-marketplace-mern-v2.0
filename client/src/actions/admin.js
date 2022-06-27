@@ -101,6 +101,25 @@ export const getAdmin = () => async dispatch => {
   }
 }
 
+export const getAllCustomers = () => async dispatch => {
+  const res = await api.get('/admin/getAllCustomers')
+
+  if (res.data.success) {
+    dispatch({
+      type: CUSTOMERS_LOADED,
+      payload: res.data.customers
+    })
+  }
+}
+
+export const deleteCustomer = customerID => async dispatch => {
+  const res = await api.delete(`/admin/deleteCustomer/${customerID}`)
+
+  if (res.data.success) {
+    dispatch(getAllCustomers())
+  }
+}
+
 export const getCustomers = (affiliateID = 'admin') => async dispatch => {
   const res = await api.get(`/admin/getCustomers/${affiliateID}`)
 

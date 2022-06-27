@@ -106,6 +106,23 @@ router.get('/getAdmin', async (req, res) => {
   })
 })
 
+router.get('/getAllCustomers', async (req, res) => {
+  const customers = await User.find({type: 'customer'})
+
+  res.json({
+    success: true,
+    customers
+  })
+})
+
+router.delete('/deleteCustomer/:id', async (req, res) => {
+  await User.findByIdAndDelete(req.params.id)
+
+  res.json({
+    success: true
+  })
+})
+
 router.get('/getCustomers/:affiliateID', async (req, res) => {
   const affiliateID = req.params.affiliateID
   let customers = []
