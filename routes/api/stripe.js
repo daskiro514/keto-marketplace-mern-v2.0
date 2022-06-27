@@ -36,8 +36,12 @@ router.post('/webhook', async (req, res) => {
 
   if (event.type === 'invoice.payment_succeeded') {
     console.log('Invoice Payment Succeed!')
-    // await payToHiddenAndPartner(event.data.object)
-    console.log(event.data.object)
+    let invoice = event.data.object
+    if (invoice.subscription === null) {
+      console.log('ONE TIME PAYMENT')
+    } else {
+      console.log('Subscription')
+    }
   }
 
   // Return a 200 res to acknowledge receipt of the event

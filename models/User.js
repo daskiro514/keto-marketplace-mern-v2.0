@@ -62,6 +62,10 @@ const UserSchema = new mongoose.Schema({
   customerStatus: {
     type: String
   },
+  mealPlanPaid: {
+    type: Boolean,
+    default: false
+  },
   stripeSubscription: {
     type: String
   },
