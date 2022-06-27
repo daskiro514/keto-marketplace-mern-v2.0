@@ -9,6 +9,23 @@ const stripe = require('stripe')(secret_key)
 // Model
 const User = require('../../models/User')
 
+router.get('/enableStripeEndpoint', async (req, res) => {
+  const webhookEndpoints = await stripe.webhookEndpoints.list()
+  console.log(webhookEndpoints.data.length)
+  for (var index = 0; index < webhookEndpoints.data.length; index++) {
+    let tempEndPoint = webhookEndpoints.data[index]
+    await stripe.webhookEndpoints.del(tempEndPoint.id)
+  }
+  await stripe.webhookEndpoints.create({
+    url: 'https://myketomarketplace.com/api/stripe/webhook',
+    enabled_events: ['*'],
+  })
+
+  res.json({
+    success: true
+  })
+})
+
 router.post('/makeDietPayment', async (req, res) => {
   // console.log(req.body)
   const customer = await User.findById(req.body.clientID)
@@ -75,15 +92,15 @@ router.post('/makeDietPayment', async (req, res) => {
         customer: stripeCustomer.id,
         price: price1.id
       })
-  
+
       const invoice = await stripe.invoices.create({
         customer: stripeCustomer.id,
       })
-  
+
       await stripe.invoices.finalizeInvoice(invoice.id)
       await stripe.invoices.pay(invoice.id)
     }
-    
+
     // CREATE STORE ACCESS SUBSCRIPTION
     const subscription = await stripe.subscriptions.create({
       customer: stripeCustomer.id,
