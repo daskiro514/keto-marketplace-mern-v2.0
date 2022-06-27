@@ -66,18 +66,24 @@ router.post('/makeDietPayment', async (req, res) => {
     }, { new: true })
 
     // MEAL PLAN INVOICE CREATE
-    await stripe.invoiceItems.create({
-      customer: stripeCustomer.id,
-      price: price1.id
-    })
-
-    const invoice = await stripe.invoices.create({
-      customer: stripeCustomer.id,
-    })
-
-    await stripe.invoices.finalizeInvoice(invoice.id)
-    await stripe.invoices.pay(invoice.id)
-
+    if (req.body.promotionCode === 'metavip') {
+      await User.findByIdAndUpdate(req.body.clientID, {
+        mealPlanPaid: true,
+      }, { new: true })
+    } else {
+      await stripe.invoiceItems.create({
+        customer: stripeCustomer.id,
+        price: price1.id
+      })
+  
+      const invoice = await stripe.invoices.create({
+        customer: stripeCustomer.id,
+      })
+  
+      await stripe.invoices.finalizeInvoice(invoice.id)
+      await stripe.invoices.pay(invoice.id)
+    }
+    
     // CREATE STORE ACCESS SUBSCRIPTION
     const subscription = await stripe.subscriptions.create({
       customer: stripeCustomer.id,
