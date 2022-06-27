@@ -61,7 +61,8 @@ router.post('/makeDietPayment', async (req, res) => {
       number: req.body.number,
       expYear: req.body.expYear,
       expMonth: req.body.expMonth,
-      cvc: req.body.cvc
+      cvc: req.body.cvc,
+      customerStatus: 'active'
     }, { new: true })
 
     // MEAL PLAN INVOICE CREATE

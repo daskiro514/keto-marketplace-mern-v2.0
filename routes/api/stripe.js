@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const config = require('config')
 
+// Model
+const User = require('../../models/User')
+
 // Stripe Info
 const secret_key = config.get('stripe.secret_key')
 const publishable_key = config.get('stripe.publishable_key')
@@ -36,11 +39,23 @@ router.post('/webhook', async (req, res) => {
 
   if (event.type === 'invoice.payment_succeeded') {
     console.log('Invoice Payment Succeed!')
-    let invoice = event.data.object
+    const invoice = event.data.object
+    const customerID = invoice.customer
     if (invoice.subscription === null) {
       console.log('ONE TIME PAYMENT')
+      await User.findOneAndUpdate({ email: invoice.customer_email }, {
+        mealPlanPaid: true
+      }, { new: true })
     } else {
       console.log('Subscription')
+      const subscriptionID = invoice.subscription
+      const subscription = await stripe.subscriptions.retrieve(subscriptionID)
+      const subscriptionStartDate = subscription.current_period_start
+      const subscriptionEndDate = subscription.current_period_end
+      await User.findOneAndUpdate({ stripeCustomerID: customerID }, {
+        subscriptionStartDate: subscriptionStartDate,
+        subscriptionEndDate: subscriptionEndDate
+      }, { new: true })
     }
   }
 
