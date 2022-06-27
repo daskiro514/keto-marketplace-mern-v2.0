@@ -19,7 +19,7 @@ router.post('/makeDietPayment', async (req, res) => {
     })
     const price1 = await stripe.prices.create({
       product: product1.id,
-      unit_amount: 2995,
+      unit_amount: req.body.promotionCode === 'metavip' ? 0 : 2995,
       currency: 'usd'
     })
 

@@ -16,7 +16,7 @@ const Dashboard = ({ isAuthenticated, user, logout }) => {
     return (
       <Affiliate />
     )
-  } else if (isAuthenticated && user && user.type === "client") {
+  } else if (isAuthenticated && user && (user.type === "client" || user.type === 'customer')) {
     return (
       <Client />
     )

@@ -43,11 +43,12 @@ export const setDescribeList = describes => async dispatch => {
   })
 }
 
-export const makeDietPayment = formData => async dispatch => {
+export const makeDietPayment = (formData) => async dispatch => {
   const res = await api.post('/payment/makeDietPayment', formData)
 
   if (res.data.success) {
-    console.log('success')
+    dispatch(setAlert('Payment Success', 'success'))
+    window.location.href = window.location.port ? 'http://' + window.location.hostname + ':3000/login' : 'https://' + window.location.hostname + '/login'
   } else {
     dispatch(setAlert(res.data.message, 'danger'))
   }

@@ -50,6 +50,21 @@ router.post(
           .json({ errors: [{ msg: 'Invalid Credentials' }] })
       }
 
+      // FOR SUSPENDED CUSTOMERS (THEY CAN'T LOGIN)
+      const dateInSeconds = (new Date()).getTime() / 1000
+      if (user.type === 'customer' && (user.subscriptionEndDate === undefined || user.subscriptionEndDate < dateInSeconds)) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'Your Subscription Has Already Ended.' }] })
+      }
+
+      // FOR DELETED CUSTOMERS (THEY CAN'T LOGIN)
+      if (user.type === 'customer' && user.customerStatus === 'Deleted') {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'Your Account Has Been Deleted.' }] })
+      }
+
       const isMatch = await bcrypt.compare(password, user.password)
 
       if (!isMatch) {
