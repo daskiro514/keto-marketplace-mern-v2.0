@@ -14,6 +14,25 @@ router.post('/makeDietPayment', async (req, res) => {
   const customer = await User.findById(req.body.clientID)
 
   try {
+    const product1 = await stripe.products.create({
+      name: 'MEAL PLAN'
+    })
+    const price1 = await stripe.prices.create({
+      product: product1.id,
+      unit_amount: 2995,
+      currency: 'usd'
+    })
+
+    const product2 = await stripe.products.create({
+      name: 'STORE ACCESS'
+    })
+    const price2 = await stripe.prices.create({
+      product: product2.id,
+      unit_amount: 199,
+      currency: 'usd',
+      recurring: { interval: 'month' }
+    })
+
     // CREATE PAYMENT METHOD WITH CUSTOMER GIVEN INFO
     const paymentMethod = await stripe.paymentMethods.create({
       type: 'card',
@@ -43,13 +62,12 @@ router.post('/makeDietPayment', async (req, res) => {
       expYear: req.body.expYear,
       expMonth: req.body.expMonth,
       cvc: req.body.cvc
-    }, {new: true})
+    }, { new: true })
 
     // MEAL PLAN INVOICE CREATE
     await stripe.invoiceItems.create({
       customer: stripeCustomer.id,
-      amount: 2995,
-      currency: 'usd'
+      price: price1.id
     })
 
     const invoice = await stripe.invoices.create({
@@ -57,6 +75,19 @@ router.post('/makeDietPayment', async (req, res) => {
     })
 
     await stripe.invoices.finalizeInvoice(invoice.id)
+    await stripe.invoices.pay(invoice.id)
+
+    // CREATE STORE ACCESS SUBSCRIPTION
+    const subscription = await stripe.subscriptions.create({
+      customer: stripeCustomer.id,
+      items: [{ price: price2.id }],
+      expand: ['latest_invoice.payment_intent']
+    })
+
+    await User.findByIdAndUpdate(req.body.clientID, {
+      stripeSubscription: subscription.id,
+    }, { new: true })
+
   } catch (err) {
     res.json({
       success: false,
