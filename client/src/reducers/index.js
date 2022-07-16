@@ -9,6 +9,7 @@ import stripe from './stripe'
 import order from './order'
 import recipe from './recipe'
 import plan from './plan'
+import ebook from './ebook'
 import diet from './diet'
 
 export default combineReducers({
@@ -22,5 +23,6 @@ export default combineReducers({
   order,
   recipe,
   plan,
+  ebook,
   diet,
 })

@@ -23,6 +23,7 @@ app.use('/api/stripe', require('./routes/api/stripe'))
 app.use('/api/order', require('./routes/api/order'))
 app.use('/api/recipe', require('./routes/api/recipe'))
 app.use('/api/plan', require('./routes/api/plan'))
+app.use('/api/ebook', require('./routes/api/ebook'))
 app.use('/api/payment', require('./routes/api/payment'))
 
 // Serve frontend built

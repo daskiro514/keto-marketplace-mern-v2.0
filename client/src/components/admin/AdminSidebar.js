@@ -69,6 +69,12 @@ const AdminSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
               <div>Meal Plan</div>
             </div>
           </div>
+          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'ebooks' ? 'selected' : '')} onClick={() => goPage('ebooks')}>
+            <div className='d-flex align-items-center'>
+              <div><i className='fa fa-file-pdf-o mr-3 ml-1'></i></div>
+              <div>Ebooks</div>
+            </div>
+          </div>
           <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'categories' ? 'selected' : '')} onClick={() => goPage('categories')}>
             <div className='d-flex align-items-center'>
               <div><img src={productImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>

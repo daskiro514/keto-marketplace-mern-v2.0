@@ -33,6 +33,9 @@ import AdminMealPlanEdit from './admin-meal-plan/AdminMealPlanEdit'
 import AdminMealPlanView from './admin-meal-plan/AdminMealPlanView'
 import AdminRecipeView from './admin-recipes/AdminRecipeView'
 import AdminCustomers from './AdminCustomers'
+import AdminEbooks from './admin-ebook/AdminEbooks'
+import AdminEbookCreate from './admin-ebook/AdminEbookCreate'
+import AdminEbookEdit from './admin-ebook/AdminEbookEdit'
 
 const Admin = () => {
 
@@ -52,6 +55,9 @@ const Admin = () => {
             <PrivateRoute exact path="/plan/:id" component={AdminMealPlanView} />
             <PrivateRoute exact path="/plan-create" component={AdminMealPlanCreate} />
             <PrivateRoute exact path="/plan-edit/:id" component={AdminMealPlanEdit} />
+            <PrivateRoute exact path="/ebooks" component={AdminEbooks} />
+            <PrivateRoute exact path="/ebook-create" component={AdminEbookCreate} />
+            <PrivateRoute exact path="/ebook-edit/:id" component={AdminEbookEdit} />
             <PrivateRoute exact path="/categories" component={AdminCategories} />
             <PrivateRoute exact path="/category-create" component={AdminCategoryCreate} />
             <PrivateRoute exact path="/category-edit/:id" component={AdminCategoryEdit} />

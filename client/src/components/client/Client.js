@@ -4,7 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { loadCartData } from '../../actions/cart'
 import PrivateRoute from '../routing/PrivateRoute'
 import ClientSidebar from './ClientSidebar'
-import ClientDashboard from './ClientDashboard'
+import ClientHome from './ClientHome'
+import ClientAcademy from './ClientAcademy'
 import ClientStore from './ClientStore'
 import ClientProduct from './ClientProduct'
 import ClientSettings from './ClientSettings'
@@ -16,6 +17,7 @@ import ClientThanks from './ClientThanks'
 import ClientOrderDetail from './ClientOrderDetail'
 import ClientRecipes from './client-recipe/ClientRecipes'
 import ClientRecipe from './client-recipe/ClientRecipe'
+import ClientFaq from './ClientFaq'
 
 const Client = ({loadCartData}) => {
 
@@ -24,12 +26,13 @@ const Client = ({loadCartData}) => {
   }, [loadCartData])
 
   return (
-    <div className='container-fluid bg-admin'>
+    <div className='container-fluid bg-admin font-15'>
       <div className='row'>
         <ClientSidebar />
-        <div className='col-lg-10 col-md-9'>
+        <div className='client-right'>
           <Router basename="/dashboard">
-            <PrivateRoute exact path="/" component={ClientDashboard} />
+            <PrivateRoute exact path="/" component={ClientHome} />
+            <PrivateRoute exact path="/academy" component={ClientAcademy} />
             <PrivateRoute exact path="/academy/:id" component={ClientAcademyView} />
             <PrivateRoute exact path="/store" component={ClientStore} />
             <PrivateRoute exact path="/recipes" component={ClientRecipes} />
@@ -41,6 +44,7 @@ const Client = ({loadCartData}) => {
             <PrivateRoute exact path="/thanks" component={ClientThanks} />
             <PrivateRoute exact path="/product/:id" component={ClientProduct} />
             <PrivateRoute exact path="/settings" component={ClientSettings} />
+            <PrivateRoute exact path="/faq" component={ClientFaq} />
           </Router>
         </div>
       </div>

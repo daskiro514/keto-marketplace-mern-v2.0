@@ -32,6 +32,10 @@ hr {
   font-size: 15px !important;
 }
 
+.font-16 {
+  font-size: 16px !important;
+}
+
 .font-18 {
   font-size: 18px !important;
 }
@@ -44,6 +48,10 @@ hr {
 
 .font-19 {
   font-size: 19px !important;
+}
+
+.font-20 {
+  font-size: 20px !important;
 }
 
 .font-21 {
@@ -62,6 +70,7 @@ hr {
   .font-24 {
     font-size: 20px !important;
   }
+
   .font-22 {
     font-size: 19px !important;
   }
@@ -71,6 +80,7 @@ hr {
   .font-24 {
     font-size: 15px !important;
   }
+
   .font-22 {
     font-size: 15px !important;
   }
@@ -110,11 +120,11 @@ hr {
   border-right: 1px solid #BBBBBB;
 }
 
-.signoutLink {
+/* .signoutLink {
   position: fixed;
   bottom: 20px;
   width: 16.666667% !important;
-}
+} */
 
 @media (max-width: 768px) {
   .sidebar {
@@ -607,6 +617,100 @@ form .form-label {
 
 .get-diet-result .apexcharts-legend-text {
   color: white !important;
+}
+
+.client-left {
+  width: 120px;
+  background: #332443;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  font-family: "Fira Sans" !important;
+}
+
+.client-right {
+  margin-left: 120px;
+  width: calc(100% - 120px);
+  font-family: "Fira Sans" !important;
+}
+
+.client-right .row {
+  margin: 0px !important;
+}
+
+@media (max-width: 767px) {
+  .client-left {
+    width: 100px;
+    background: #332443;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  .client-right {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+}
+
+.client-left .menuItem {
+  font-size: 14px;
+  color: #fff;
+}
+
+.client-left .menuItem:hover {
+  background-color: #251b2f;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.client-left .selected {
+  background-color: #251b2f;
+}
+
+.bg-light-blue {
+  background-color: #ebf0f3;
+}
+
+.client-right {
+  color: #4C515F;
+}
+
+.client-right h1, h2, h3, h4, h5, h6, p, span, tr, th, td, div, ul, li, input, label, textarea {
+  font-family: "Fira Sans" !important;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.btn-gradient {
+  background: linear-gradient(101.65deg, #FB8530 0%, #FF4A6B 76.92%) !important;
+  color: #ffffff !important;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(-100deg, #FB8530 0%, #FF4A6B 76.92%) !important;
+}
+
+.card-link .fa-minus {
+  display: block;
+}
+
+.collapsed .fa-minus {
+  display: none;
+}
+
+.card-link .fa-plus {
+  display: none;
+}
+
+.collapsed .fa-plus {
+  display: block;
 }
 
 

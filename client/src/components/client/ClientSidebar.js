@@ -25,64 +25,75 @@ const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
   }
 
   return (
-    <div className='col-lg-2 col-md-3 sidebar p-0'>
+    <div className='client-left'>
       <div className='container-fluid p-0'>
         <div className='py-3'>
           <div className='text-center cursor-pointer' onClick={() => goPage('dashboard')}>
-            <img src={user.avatar} className='rounded-circle' width='60px' alt='PROFILE' />
-            <div className='pt-2 font-21 font-bold'>{user.name}</div>
+            <img src='/img/logo.svg' alt='PROFILE' />
           </div>
         </div>
-        <div className='top-border p-2 pt-3'>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'dashboard' ? 'selected' : '')} onClick={() => goPage('dashboard')}>
-            <div className='d-flex align-items-center'>
-              <div><img src={academyImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+        <div className=''>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'dashboard' ? 'selected' : '')} onClick={() => goPage('dashboard')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/home.svg' alt='SETIMG' /></div>
+              <div>Home</div>
+            </div>
+          </div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'faq' ? 'selected' : '')} onClick={() => goPage('faq')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/faq.svg' alt='SETIMG' /></div>
+              <div>FAQ</div>
+            </div>
+          </div>
+          {/* <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'academy' ? 'selected' : '')} onClick={() => goPage('academy')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/page.svg' alt='SETIMG' /></div>
               <div>Academy</div>
             </div>
           </div>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'store' ? 'selected' : '')} onClick={() => goPage('store')}>
-            <div className='d-flex align-items-center'>
-              <div><img src={storeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'store' ? 'selected' : '')} onClick={() => goPage('store')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/page.svg' alt='SETIMG' /></div>
               <div>Store</div>
             </div>
           </div>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'recipes' ? 'selected' : '')} onClick={() => goPage('recipes')}>
-            <div className='d-flex align-items-center'>
-              <div><img src={recipeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'recipes' ? 'selected' : '')} onClick={() => goPage('recipes')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/book.svg' alt='SETIMG' /></div>
               <div>Recipes</div>
             </div>
           </div>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'cart' ? 'selected' : '')} onClick={() => goPage('cart')}>
-            <div className='d-flex align-items-center'>
-              <div><img src={storeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'cart' ? 'selected' : '')} onClick={() => goPage('cart')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/page.svg' alt='SETIMG' /></div>
               <div>Cart</div>
             </div>
           </div>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'orders' ? 'selected' : '')} onClick={() => goPage('orders')}>
-            <div className='d-flex align-items-center'>
-              <div><img src={storeImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'orders' ? 'selected' : '')} onClick={() => goPage('orders')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/page.svg' alt='SETIMG' /></div>
               <div>Orders</div>
             </div>
-          </div>
+          </div> */}
         </div>
 
-        <div className='signoutLink top-border p-2 pt-3'>
-          <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'settings' ? 'selected' : '')} onClick={() => goPage('settings')}>
-            <div className='d-flex align-items-center'>
-              <div><img src={settingsImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+        {/* <div className='signoutLink p-2 pt-3'>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'settings' ? 'selected' : '')} onClick={() => goPage('settings')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src={settingsImage} alt='SETIMG' /></div>
               <div>Settings</div>
             </div>
           </div>
-          <div className='row mx-1 h5 menuItem rounded p-1' onClick={() => {
+          <div className='menuItem rounded py-3 p-1 ' onClick={() => {
             setCurrentPage('dashboard')
             logout()
           }}>
-            <div className='d-flex align-items-center'>
-              <div><img src={logoutImage} alt='SETIMG' height='20px' width='20px' className='mr-3' /></div>
+            <div className='text-center'>
+              <div className='pb-2'><img src={logoutImage} alt='SETIMG' /></div>
               <div>Sign Out</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
