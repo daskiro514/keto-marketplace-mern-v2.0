@@ -34,6 +34,12 @@ const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
               <div>Home</div>
             </div>
           </div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'my-plan' ? 'selected' : '')} onClick={() => goPage('my-plan')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/fork.svg' alt='SETIMG' /></div>
+              <div>Your Plan</div>
+            </div>
+          </div>
           <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'faq' ? 'selected' : '')} onClick={() => goPage('faq')}>
             <div className='text-center'>
               <div className='pb-2'><img src='/img/faq.svg' alt='SETIMG' /></div>

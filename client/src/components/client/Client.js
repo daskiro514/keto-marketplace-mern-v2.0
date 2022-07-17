@@ -18,6 +18,7 @@ import ClientOrderDetail from './ClientOrderDetail'
 import ClientRecipes from './client-recipe/ClientRecipes'
 import ClientRecipe from './client-recipe/ClientRecipe'
 import ClientFaq from './ClientFaq'
+import ClientPlan from './ClientPlan'
 
 const Client = ({loadCartData}) => {
 
@@ -32,6 +33,8 @@ const Client = ({loadCartData}) => {
         <div className='client-right'>
           <Router basename="/dashboard">
             <PrivateRoute exact path="/" component={ClientHome} />
+            <PrivateRoute exact path="/my-plan" component={ClientPlan} />
+            <PrivateRoute exact path="/faq" component={ClientFaq} />
             <PrivateRoute exact path="/academy" component={ClientAcademy} />
             <PrivateRoute exact path="/academy/:id" component={ClientAcademyView} />
             <PrivateRoute exact path="/store" component={ClientStore} />
@@ -44,7 +47,6 @@ const Client = ({loadCartData}) => {
             <PrivateRoute exact path="/thanks" component={ClientThanks} />
             <PrivateRoute exact path="/product/:id" component={ClientProduct} />
             <PrivateRoute exact path="/settings" component={ClientSettings} />
-            <PrivateRoute exact path="/faq" component={ClientFaq} />
           </Router>
         </div>
       </div>
