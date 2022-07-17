@@ -3,11 +3,6 @@ import { connect } from 'react-redux'
 import { logout } from '../../actions/auth'
 import { useHistory } from 'react-router-dom'
 import { setCurrentPage } from '../../actions/admin'
-import academyImage from '../../img/icons/academy.PNG'
-import storeImage from '../../img/icons/store.PNG'
-import settingsImage from '../../img/icons/settings.PNG'
-import recipeImage from '../../img/icons/recipe.PNG'
-import logoutImage from '../../img/icons/logout.PNG'
 
 const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
   let history = useHistory()
@@ -29,7 +24,7 @@ const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
       <div className='container-fluid p-0'>
         <div className='py-3'>
           <div className='text-center cursor-pointer' onClick={() => goPage('dashboard')}>
-            <img src='/img/logo.svg' alt='PROFILE' />
+            <img src='/img/logo.svg' alt='PROFILE' className='img-fluid' />
           </div>
         </div>
         <div className=''>
@@ -43,6 +38,16 @@ const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
             <div className='text-center'>
               <div className='pb-2'><img src='/img/faq.svg' alt='SETIMG' /></div>
               <div>FAQ</div>
+            </div>
+          </div>
+
+          <div className='menuItem rounded py-3 p-1' onClick={() => {
+            setCurrentPage('dashboard')
+            logout()
+          }}>
+            <div className='text-center'>
+              <div className='pb-2'><i className='h4 fa fa-sign-out'></i></div>
+              <div>LOGOUT</div>
             </div>
           </div>
           {/* <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'academy' ? 'selected' : '')} onClick={() => goPage('academy')}>

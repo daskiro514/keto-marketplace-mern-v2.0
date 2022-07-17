@@ -53,13 +53,13 @@ const ClientHome = ({ user }) => {
           <br />
           <br />
           <div className='row bg-white py-3'>
-            <div className='col-12 pt-3 pb-4'>
+            <div className='col-12 pt-3 pb-2'>
               <div className='h3 text-danger font-weight-bold'>FREE BONUS<span className='text-black'> - Intermittent Fasting For Keto Dieters 101</span></div>
             </div>
-            <div className='col-lg-3 col-md-5'>
+            <div className='col-lg-3 col-md-5 py-3'>
               <img alt='SETIMAGE' src='/img/101.png' className='img-fluid' style={{ maxWidth: '200px' }} />
             </div>
-            <div className='col-lg-9 col-md-7'>
+            <div className='col-lg-9 col-md-7 py-3'>
               <div className='text-danger h5 font-weight-bold'>
                 Learn how intermittant fasting can:
               </div>

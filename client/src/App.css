@@ -672,6 +672,21 @@ form .form-label {
   background-color: #251b2f;
 }
 
+.client-left img {
+  display: block;
+  margin: auto auto 10px;
+  filter: brightness(0) invert(1);
+  transition: all .3s;
+}
+
+.client-left .selected img {
+  display: block;
+  margin: auto auto 10px;
+  filter: unset;
+  transition: all .3s;
+}
+
+
 .bg-light-blue {
   background-color: #ebf0f3;
 }
