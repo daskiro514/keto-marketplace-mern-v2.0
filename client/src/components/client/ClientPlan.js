@@ -116,12 +116,12 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3 border-bottom'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/current-weight.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/current-weight.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {user.weight}
-                    <span className='font-15 text-black min-h-45 ml-2'>kg</span>
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black ml-2'>kg</span>
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('currentWeight')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -135,12 +135,12 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/target-weight.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/target-weight.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {user.desiredWeight}
-                    <span className='font-15 text-black min-h-45 ml-2'>kg</span>
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black ml-2'>kg</span>
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('targetWeight')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -156,12 +156,12 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3 border-bottom'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/height.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/height.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {user.height}
-                    <span className='font-15 text-black min-h-45 ml-2'>cm</span>
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black ml-2'>cm</span>
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('height')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -175,11 +175,11 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/activity-level.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/activity-level.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {user.activityLevel < 0.4 ? 'Low' : user.activityLevel <= 0.6 ? 'Normal' : 'High'}
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('activityLevel')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -195,11 +195,11 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3 border-bottom'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/daily-calories.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/daily-calories.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {result ? Math.round(result.energy / 10) * 10 : null}
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('dailyCalories')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -213,11 +213,11 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/properties.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/properties.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {result ? `${Math.round(result.gramsProtein / 10) * 10} - ${Math.round(result.gramsFat / 10) * 10} - ${Math.round(result.gramsNetCarbs / 10) * 10}` : null}
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('properties')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -233,12 +233,12 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3 border-bottom'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/water-intake.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/water-intake.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {dailyWaterIntake}
-                    <span className='font-15 text-black min-h-45 ml-2'>L</span>
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black ml-2'>L</span>
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('waterIntake')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -252,12 +252,12 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='bg-white p-3'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
-                <img src='/img/expected-weight.svg' alt='SETIMAGE' className='mr-3' />
+                <img src='/img/expected-weight.svg' alt='SETIMAGE' className='mr-3 width-40' />
                 <div>
-                  <div className='h4 mb-0'>
+                  <div className='h4 mb-0 font-weight-bold'>
                     {user.weight - 5}
-                    <span className='font-15 text-black min-h-45 ml-2'>kg</span>
-                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black ml-2'>kg</span>
+                    <i className='font-15 text-black fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('expectedWeight')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
