@@ -4,7 +4,7 @@ import { getRecipe } from '../../../actions/recipe'
 import Vimeo from '@u-wave/react-vimeo'
 import { Link } from 'react-router-dom'
 
-const ClientRecipe = ({ recipe, getRecipe, match, baseURL, user }) => {
+const ClientRecipe = ({ recipe, getRecipe, match, user }) => {
   const recipeID = match.params.id
 
   React.useEffect(() => {
@@ -32,7 +32,7 @@ const ClientRecipe = ({ recipe, getRecipe, match, baseURL, user }) => {
           <div className='row mx-1 px-2 my-3 bg-white'>
             <div className='col-lg-6 p-3 border-right border-bottom text-center'>
               {/* <img alt='SETIMAGE' src={baseURL + recipe.image} className='img-fluid rounded-lg' /> */}
-              {recipe.video === null ? null
+              {recipe.video === undefined ? null
                 :
                 <Vimeo
                   video={recipe.video}
@@ -128,7 +128,6 @@ const ClientRecipe = ({ recipe, getRecipe, match, baseURL, user }) => {
 
 const mapStateToProps = state => ({
   recipe: state.recipe.recipe,
-  baseURL: state.admin.baseURL,
   user: state.auth.user
 })
 

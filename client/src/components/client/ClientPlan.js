@@ -46,7 +46,6 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
   const [detail, setDetail] = React.useState('')
 
   const [result, setResult] = React.useState(null)
-  const [BMI, setBMI] = React.useState(0)
   const [dailyWaterIntake, setDailyWaterIntake] = React.useState(0)
 
   React.useEffect(() => {
@@ -71,8 +70,6 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
     var result = kdb.calculateCalorieIntake(others.calorieAdjustment)
 
     setDailyWaterIntake((weight * 30 / 28.3 / 33.81).toFixed(1))
-    setBMI((weight / (height / 100) ** 2).toFixed(1))
-
     setResult(result.desirable)
   }, [activityLevel, age, bodyfat, desiredWeight, gender, height, weight])
 
@@ -281,7 +278,7 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
               <div className='d-inline-block mx-2 py-2'>
                 <div className="d-flex align-items-center">
                   <button type="button" className="btn btn-info btn-sm rounded-0"><i className='fa fa-angle-left'></i></button>
-                  <lable className='mx-2'>WEEK 1</lable>
+                  <label className='mx-2'>WEEK 1</label>
                   <button type="button" className="btn btn-info btn-sm rounded-0"><i className='fa fa-angle-right'></i></button>
                 </div>
               </div>
@@ -305,11 +302,13 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           <div className='table-responsive bg-white'>
             <table className='table'>
               <thead className='font-15 text-black min-h-45'>
-                <th></th>
-                <th className='text-center'>Breakfast</th>
-                <th className='text-center'>Lunch</th>
-                <th className='text-center'>Dinner</th>
-                <th className='text-center'>Snacks</th>
+                <tr>
+                  <th></th>
+                  <th className='text-center'>Breakfast</th>
+                  <th className='text-center'>Lunch</th>
+                  <th className='text-center'>Dinner</th>
+                  <th className='text-center'>Snacks</th>
+                </tr>
               </thead>
               <tbody>
                 {plan.days.map((item, index) =>
