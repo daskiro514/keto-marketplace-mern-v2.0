@@ -14,7 +14,7 @@ const ClientRecipe = ({ recipe, getRecipe, match, user }) => {
   return (
     <div className='client-recipe'>
       <div className='row align-items-center py-3 justify-content-between'>
-        <div className='h5 col-md-4'>
+        <div className='h5 col-md-4 font-weight-bold'>
           <Link to='/my-plan'><i className='fa fa-arrow-circle-o-left mr-2'></i>My Plan</Link>
         </div>
         <div className='text-right col-sm-4'>
@@ -32,7 +32,7 @@ const ClientRecipe = ({ recipe, getRecipe, match, user }) => {
           <div className='row mx-1 px-2 my-3 bg-white'>
             <div className='col-lg-6 p-3 border-right border-bottom text-center'>
               {/* <img alt='SETIMAGE' src={baseURL + recipe.image} className='img-fluid rounded-lg' /> */}
-              {recipe.video === undefined ? null
+              {(recipe.video === undefined || recipe.video.length < 1) ? null
                 :
                 <Vimeo
                   video={recipe.video}

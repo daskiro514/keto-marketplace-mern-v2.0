@@ -40,7 +40,7 @@ const modalData = {
   },
 }
 
-const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
+const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight } }) => {
 
   const [title, setTitle] = React.useState('')
   const [detail, setDetail] = React.useState('')
@@ -82,7 +82,7 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
   return (
     <div className='client-plan'>
       <div className='row align-items-center py-3 justify-content-between'>
-        <div className='h5 col-md-4'>Your Plan</div>
+        <div className='h5 col-md-4 font-weight-bold'>Your Plan</div>
         <div className='col-md-4 text-right'>
           <span className='mr-4 cursor-pointer' data-toggle="modal" data-target="#myModal">
             <i className='fa fa-info-circle mr-2'></i>

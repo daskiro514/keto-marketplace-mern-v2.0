@@ -19,6 +19,7 @@ import ClientRecipes from './client-recipe/ClientRecipes'
 import ClientRecipe from './client-recipe/ClientRecipe'
 import ClientFaq from './ClientFaq'
 import ClientPlan from './ClientPlan'
+import Client101 from './Client101'
 
 const Client = ({loadCartData}) => {
 
@@ -34,6 +35,7 @@ const Client = ({loadCartData}) => {
           <Router basename="/dashboard">
             <PrivateRoute exact path="/" component={ClientHome} />
             <PrivateRoute exact path="/my-plan" component={ClientPlan} />
+            <PrivateRoute exact path="/keto-101" component={Client101} />
             <PrivateRoute exact path="/faq" component={ClientFaq} />
             <PrivateRoute exact path="/academy" component={ClientAcademy} />
             <PrivateRoute exact path="/academy/:id" component={ClientAcademyView} />
