@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Vimeo from '@u-wave/react-vimeo'
 import core from '../../utils/keto-diet-buddy-core'
+import { getTempPlan } from '../../actions/plan'
+import { Link } from 'react-router-dom'
 
 const modalData = {
   currentWeight: {
@@ -38,7 +40,7 @@ const modalData = {
   },
 }
 
-const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
+const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat, activityLevel, age, height, weight, desiredWeight, goals, describes } }) => {
 
   const [title, setTitle] = React.useState('')
   const [detail, setDetail] = React.useState('')
@@ -46,6 +48,10 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
   const [result, setResult] = React.useState(null)
   const [BMI, setBMI] = React.useState(0)
   const [dailyWaterIntake, setDailyWaterIntake] = React.useState(0)
+
+  React.useEffect(() => {
+    getTempPlan()
+  }, [getTempPlan])
 
   React.useEffect(() => {
     const others = {
@@ -77,9 +83,9 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
   }
 
   return (
-    <div className='client-home'>
+    <div className='client-plan'>
       <div className='row align-items-center py-3 justify-content-between'>
-        <div className='h5 font-weight-bold col-md-4'>Your Plan</div>
+        <div className='h5 col-md-4'>Your Plan</div>
         <div className='col-md-4 text-right'>
           <span className='mr-4 cursor-pointer' data-toggle="modal" data-target="#myModal">
             <i className='fa fa-info-circle mr-2'></i>
@@ -112,10 +118,10 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/current-weight.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {user.weight}
-                    <span className='font-16 ml-2'>kg</span>
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black min-h-45 ml-2'>kg</span>
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('currentWeight')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -131,10 +137,10 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/target-weight.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {user.desiredWeight}
-                    <span className='font-16 ml-2'>kg</span>
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black min-h-45 ml-2'>kg</span>
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('targetWeight')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -152,10 +158,10 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/height.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {user.height}
-                    <span className='font-16 ml-2'>cm</span>
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black min-h-45 ml-2'>cm</span>
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('height')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -171,9 +177,9 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/activity-level.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {user.activityLevel < 0.4 ? 'Low' : user.activityLevel <= 0.6 ? 'Normal' : 'High'}
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('activityLevel')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -191,9 +197,9 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/daily-calories.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {result ? Math.round(result.energy / 10) * 10 : null}
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('dailyCalories')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -209,9 +215,9 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/properties.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {result ? `${Math.round(result.gramsProtein / 10) * 10} - ${Math.round(result.gramsFat / 10) * 10} - ${Math.round(result.gramsNetCarbs / 10) * 10}` : null}
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('properties')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -229,10 +235,10 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/water-intake.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
+                  <div className='h4 mb-0'>
                     {dailyWaterIntake}
-                    <span className='font-16 ml-2'>L</span>
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                    <span className='font-15 text-black min-h-45 ml-2'>L</span>
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('waterIntake')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -248,10 +254,10 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
               <div className='d-flex align-items-center'>
                 <img src='/img/expected-weight.svg' alt='SETIMAGE' className='mr-3' />
                 <div>
-                  <div className='h4 font-weight-bold mb-0'>
-                    {user.desiredWeight - 5}
-                    <span className='font-16 ml-2'>kg</span>
-                    <i className='font-16 fa fa-question-circle-o ml-2'
+                  <div className='h4 mb-0'>
+                    {user.weight - 5}
+                    <span className='font-15 text-black min-h-45 ml-2'>kg</span>
+                    <i className='font-15 text-black min-h-45 fa fa-question-circle-o ml-2'
                       onClick={() => modalChange('expectedWeight')}
                       data-toggle="modal"
                       data-target="#myModal1"></i>
@@ -260,6 +266,131 @@ const ClientPlan = ({ user, user: { gender, bodyfat, activityLevel, age, height,
                 </div>
               </div>
               <i className='fa fa-pencil'></i>
+            </div>
+          </div>
+        </div>
+
+        <div className='col-12 p-0 pt-5 pb-4'>
+          <div className='row align-items-center justify-content-between'>
+            <div className='col-lg-4 h4 text-black'>Your Custom Meal Plan</div>
+            <div className='col-lg-8 text-right'>
+              <div className='d-inline-block mx-2'>
+                <div className="d-flex align-items-center">
+                  <button type="button" className="btn btn-info btn-sm rounded-0"><i className='fa fa-angle-left'></i></button>
+                  <lable className='mx-2'>WEEK 1</lable>
+                  <button type="button" className="btn btn-info btn-sm rounded-0"><i className='fa fa-angle-right'></i></button>
+                </div>
+              </div>
+              <div className='d-inline-block mx-2'>
+                <button className='btn btn-secondary btn-sm border-0'><i className='fa fa-refresh mr-2'></i>CHANGE INGREDIENTS</button>
+              </div>
+              <div className='d-inline-block mx-2'>
+                <button className='btn btn-secondary btn-sm border-0'><i className='fa fa-filter mr-2'></i>FILTER</button>
+              </div>
+              <div className='d-inline-block mx-2'>
+                <button className='btn btn-secondary btn-sm border-0'><i className='fa fa-print mr-2'></i>PRINT MY MEAL PLAN</button>
+              </div>
+              <div className='d-inline-block mx-2'>
+                <button className='btn btn-gradient btn-sm border-0 rounded-0'><i className='fa fa-download mr-2'></i>DOWNLOAD SHOPPING LIST</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className='col-12'>
+          <div className='table-responsive bg-white'>
+            <table className='table'>
+              <thead className='font-15 text-black min-h-45'>
+                <th></th>
+                <th className='text-center'>Breakfast</th>
+                <th className='text-center'>Lunch</th>
+                <th className='text-center'>Dinner</th>
+                <th className='text-center'>Snacks</th>
+              </thead>
+              <tbody>
+                {plan.days.map((item, index) =>
+                  <tr key={index}>
+                    <td className='width-60 p-0 pl-3 text-secondary'>Day {index + 1}</td>
+                    <td>
+                      <div className='font-15 text-black min-h-45'>{item.breakfast.name}</div>
+                      <Link to={`/recipe/${item.breakfast._id}`}>
+                        <img alt='SETIMAGE' src={baseURL + item.breakfast.image} style={{ minWidth: '240px', minHeight: '180px' }} className='img-fluid' />
+                      </Link>
+                      <div className='pt-3 d-flex align-items-center justify-content-between'>
+                        <div><img alt='SETIMAGE' src='/img/fire.svg' className='mr-2' />{item.breakfast.calories}</div>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'><i className='fa fa-refresh mr-2'></i>SWAP THIS RECIPE</button>
+                      </div>
+                      <div className='pt-2'>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'>
+                          <img alt='SETIMAGE' src='/img/burger-icon.png' width='30px' className='mr-2' />
+                          Swap For Keto Fast Food
+                        </button>
+                      </div>
+                    </td>
+                    <td>
+                      <div className='font-15 text-black min-h-45'>{item.lunch.name}</div>
+                      <Link to={`/recipe/${item.lunch._id}`}>
+                        <img alt='SETIMAGE' src={baseURL + item.lunch.image} style={{ minWidth: '240px', minHeight: '180px' }} className='img-fluid' />
+                      </Link>
+                      <div className='pt-3 d-flex align-items-center justify-content-between'>
+                        <div><img alt='SETIMAGE' src='/img/fire.svg' className='mr-2' />{item.lunch.calories}</div>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'><i className='fa fa-refresh mr-2'></i>SWAP THIS RECIPE</button>
+                      </div>
+                      <div className='pt-2'>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'>
+                          <img alt='SETIMAGE' src='/img/burger-icon.png' width='30px' className='mr-2' />
+                          Swap For Keto Fast Food
+                        </button>
+                      </div>
+                    </td>
+                    <td>
+                      <div className='font-15 text-black min-h-45'>{item.dinner.name}</div>
+                      <Link to={`/recipe/${item.dinner._id}`}>
+                        <img alt='SETIMAGE' src={baseURL + item.dinner.image} style={{ minWidth: '240px', minHeight: '180px' }} className='img-fluid' />
+                      </Link>
+                      <div className='pt-3 d-flex align-items-center justify-content-between'>
+                        <div><img alt='SETIMAGE' src='/img/fire.svg' className='mr-2' />{item.dinner.calories}</div>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'><i className='fa fa-refresh mr-2'></i>SWAP THIS RECIPE</button>
+                      </div>
+                      <div className='pt-2'>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'>
+                          <img alt='SETIMAGE' src='/img/burger-icon.png' width='30px' className='mr-2' />
+                          Swap For Keto Fast Food
+                        </button>
+                      </div>
+                    </td>
+                    <td>
+                      <div className='font-15 text-black min-h-45'>{item.snack.name}</div>
+                      <Link to={`/recipe/${item.snack._id}`}>
+                        <img alt='SETIMAGE' src={baseURL + item.snack.image} style={{ minWidth: '240px', minHeight: '180px' }} className='img-fluid' />
+                      </Link>
+                      <div className='pt-3 d-flex align-items-center justify-content-between'>
+                        <div><img alt='SETIMAGE' src='/img/fire.svg' className='mr-2' />{item.snack.calories}</div>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'><i className='fa fa-refresh mr-2'></i>SWAP THIS RECIPE</button>
+                      </div>
+                      <div className='pt-2'>
+                        <button className='btn rounded-0 border-0 btn-sm btn-secondary'>
+                          <img alt='SETIMAGE' src='/img/burger-icon.png' width='30px' className='mr-2' />
+                          Swap For Keto Fast Food
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className='col-12 pt-4'>
+          <div className='row align-items-center justify-content-between'>
+            <div className='col-lg-6 py-2'>
+              Copyright 2019 Custom Keto Diet. All rights reserved.
+            </div>
+            <div className='col-lg-6 text-right py-2'>
+              <a href='https://www.customketodiet.com/privacy' target='_blink' rel='noreferrer' className='mr-4'>Privacy</a>
+              <a href='https://www.customketodiet.com/site/terms' target='_blink' rel='noreferrer' className='mr-4'>Terms & Conditions</a>
+              <a href='https://www.customketodiet.com/contact' target='_blink' rel='noreferrer'>Contact</a>
             </div>
           </div>
         </div>
@@ -291,7 +422,9 @@ const InfoModal = ({ title, detail }) => {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user
+  user: state.auth.user,
+  plan: state.plan.plan,
+  baseURL: state.admin.baseURL
 })
 
-export default connect(mapStateToProps, {})(ClientPlan)
+export default connect(mapStateToProps, { getTempPlan })(ClientPlan)

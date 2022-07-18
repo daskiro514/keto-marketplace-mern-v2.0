@@ -25,6 +25,21 @@ router.get('/getPlans', async (req, res) => {
   })
 })
 
+router.get('/getTempPlan', async (req, res) => {
+  const plans = await Plan.find()
+  const planID = plans[0]._id
+  
+  const plan = await Plan.findById(planID).populate({
+    path: 'days',
+    populate: [{ path: 'breakfast' }, { path: 'lunch' }, { path: 'dinner' }, { path: 'snack' }]
+  })
+
+  res.json({
+    success: true,
+    plan
+  })
+})
+
 router.get('/getPlan/:id', async (req, res) => {
   const planID = req.params.id
   const plan = await Plan.findById(planID)
