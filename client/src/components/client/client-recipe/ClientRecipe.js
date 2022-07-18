@@ -32,10 +32,13 @@ const ClientRecipe = ({ recipe, getRecipe, match, baseURL, user }) => {
           <div className='row mx-1 px-2 my-3 bg-white'>
             <div className='col-lg-6 p-3 border-right border-bottom text-center'>
               {/* <img alt='SETIMAGE' src={baseURL + recipe.image} className='img-fluid rounded-lg' /> */}
-              <Vimeo
-                video={recipe.video}
-                responsive={true}
-              />
+              {recipe.video === null ? null
+                :
+                <Vimeo
+                  video={recipe.video}
+                  responsive={true}
+                />
+              }
             </div>
             <div className='col-lg-6 py-3 border-bottom'>
               <div className='h3 font-weight-bold my-4 mb-3'>{recipe.name}</div>
