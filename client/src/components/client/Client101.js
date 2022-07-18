@@ -4,6 +4,8 @@ import Vimeo from '@u-wave/react-vimeo'
 
 const Client101 = ({ user }) => {
 
+  const [vimeoID, setVimeoID] = React.useState('342314594')
+
   return (
     <div className='client-101'>
       <div className='row align-items-center py-3 justify-content-between'>
@@ -72,13 +74,132 @@ const Client101 = ({ user }) => {
         </div>
         <div className='col-lg-3 col-md-6 py-3'>
           <div className='bg-white shadow'>
-            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791162060.jpg' width='100%' height='100%' />
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791199868.jpg' width='100%' height='100%' />
             <div className='text-black text-center py-3'>Keto Introduction</div>
             <div className='text-center py-3'>
-              <button className='btn btn-info'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342314594')}>
                 <i className='fa fa-play mr-2'></i>WATCH NOW
               </button>
             </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791162060.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>What is the ketogenic diet</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342312359')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791163506.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>Benefits of the ketogenic diet</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342313996')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791164667.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>Keto diet and blood pressure</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342314166')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791169215.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>What do I eat on a keto diet</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342314204')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791162060.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>How does the keto diet work?</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342312359')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791168742.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>Getting started on the keto diet</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342314323')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791168279.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>Keto Recipes</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342314393')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className='col-lg-3 col-md-6 py-3'>
+          <div className='bg-white shadow'>
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791167978.jpg' width='100%' height='100%' />
+            <div className='text-black text-center py-3'>Keto tips hacks and conclusion</div>
+            <div className='text-center py-3'>
+              <button className='btn btn-info btn-sm rounded-0' data-toggle="modal" data-target="#myVideoModal" onClick={() => setVimeoID('342314545')}>
+                <i className='fa fa-play mr-2'></i>WATCH NOW
+              </button>
+            </div>
+          </div>
+        </div>
+        <VideoModal vimeoID={vimeoID} />
+        <div className='col-12 pt-4'>
+          <div className='row align-items-center justify-content-between'>
+            <div className='col-lg-6 py-2'>
+              Copyright 2019 Custom Keto Diet. All rights reserved.
+            </div>
+            <div className='col-lg-6 text-right py-2'>
+              <a href='https://www.customketodiet.com/privacy' target='_blink' rel='noreferrer' className='mr-4'>Privacy</a>
+              <a href='https://www.customketodiet.com/site/terms' target='_blink' rel='noreferrer' className='mr-4'>Terms & Conditions</a>
+              <a href='https://www.customketodiet.com/contact' target='_blink' rel='noreferrer'>Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const VideoModal = ({ vimeoID }) => {
+  return (
+    <div className="modal" id="myVideoModal">
+      <div className="modal-dialog modal-lg mt-5">
+        <div className="modal-content">
+          <button type="button" className="position-absolute close" data-dismiss="modal" style={{ top: '-25px', right: '10px' }}>&times;</button>
+          <div className="modal-body p-0">
+            <Vimeo
+              video={vimeoID}
+              responsive={true}
+            />
           </div>
         </div>
       </div>
