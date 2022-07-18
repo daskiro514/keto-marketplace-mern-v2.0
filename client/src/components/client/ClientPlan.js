@@ -270,27 +270,31 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
           </div>
         </div>
 
-        <div className='col-12 p-0 pt-5 pb-4'>
+        <div className='col-12 p-0 pt-4 pb-3'>
           <div className='row align-items-center justify-content-between'>
-            <div className='col-lg-4 h4 text-black'>Your Custom Meal Plan</div>
+            <div className='col-lg-4 h4 text-black'>
+              <div className='py-2'>
+                Your Custom Meal Plan
+              </div>
+            </div>
             <div className='col-lg-8 text-right'>
-              <div className='d-inline-block mx-2'>
+              <div className='d-inline-block mx-2 py-2'>
                 <div className="d-flex align-items-center">
                   <button type="button" className="btn btn-info btn-sm rounded-0"><i className='fa fa-angle-left'></i></button>
                   <lable className='mx-2'>WEEK 1</lable>
                   <button type="button" className="btn btn-info btn-sm rounded-0"><i className='fa fa-angle-right'></i></button>
                 </div>
               </div>
-              <div className='d-inline-block mx-2'>
+              <div className='d-inline-block mx-2 py-2'>
                 <button className='btn btn-secondary btn-sm border-0'><i className='fa fa-refresh mr-2'></i>CHANGE INGREDIENTS</button>
               </div>
-              <div className='d-inline-block mx-2'>
+              <div className='d-inline-block mx-2 py-2'>
                 <button className='btn btn-secondary btn-sm border-0'><i className='fa fa-filter mr-2'></i>FILTER</button>
               </div>
-              <div className='d-inline-block mx-2'>
+              <div className='d-inline-block mx-2 py-2'>
                 <button className='btn btn-secondary btn-sm border-0'><i className='fa fa-print mr-2'></i>PRINT MY MEAL PLAN</button>
               </div>
-              <div className='d-inline-block mx-2'>
+              <div className='d-inline-block mx-2 py-2'>
                 <button className='btn btn-gradient btn-sm border-0 rounded-0'><i className='fa fa-download mr-2'></i>DOWNLOAD SHOPPING LIST</button>
               </div>
             </div>
