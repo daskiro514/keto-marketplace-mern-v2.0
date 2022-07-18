@@ -89,7 +89,7 @@ const ClientPlan = ({ getTempPlan, plan, baseURL, user, user: { gender, bodyfat,
             Learn more about your plan
           </span>
         </div>
-        <div className='text-right col-sm-4'>
+        <div className='text-right col-md-4'>
           <img alt='SETIMAGE' className='rounded-circle mr-2' width='40px' src={user.avatar} />
           <span>Hello, {user.name}</span>
         </div>

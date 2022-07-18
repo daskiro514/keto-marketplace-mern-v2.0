@@ -46,6 +46,12 @@ const ClientSidebar = ({ user, logout, setCurrentPage, currentPage }) => {
               <div>keto 101</div>
             </div>
           </div>
+          <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'ebooks' ? 'selected' : '')} onClick={() => goPage('ebooks')}>
+            <div className='text-center'>
+              <div className='pb-2'><img src='/img/book.svg' alt='SETIMG' /></div>
+              <div>Recipes</div>
+            </div>
+          </div>
           <div className={'menuItem rounded py-3 p-1 ' + (currentPage === 'faq' ? 'selected' : '')} onClick={() => goPage('faq')}>
             <div className='text-center'>
               <div className='pb-2'><img src='/img/faq.svg' alt='SETIMG' /></div>
