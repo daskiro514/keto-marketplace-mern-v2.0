@@ -68,7 +68,7 @@ const Client101 = ({ user }) => {
           <br />
         </div>
         <div className='col-12'>
-          <div className='pt-4 h5 text-black'>
+          <div className='h5 text-black'>
             Keto 101 Video Series
           </div>
         </div>

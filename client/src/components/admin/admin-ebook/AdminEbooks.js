@@ -15,7 +15,7 @@ const AdminEbooks = ({ ebooks, getEbooks, baseURL, deleteEbook }) => {
 
   React.useEffect(() => {
     setPageEbooks(ebooks.slice((pageNumber - 1) * 5, pageNumber * 5))
-    setMaxPageNumber(Math.ceil(ebooks.length / 10))
+    setMaxPageNumber(Math.ceil(ebooks.length / 5))
   }, [ebooks, pageNumber])
 
   const nextPage = () => {
@@ -99,7 +99,7 @@ const AdminEbooks = ({ ebooks, getEbooks, baseURL, deleteEbook }) => {
               </table>
             </div>
           }
-          {ebooks.length <= 10 ? null
+          {ebooks.length <= 5 ? null
             :
             <>
               <div className='text-center pt-3'>
