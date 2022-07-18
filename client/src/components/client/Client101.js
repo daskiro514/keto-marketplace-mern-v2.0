@@ -72,7 +72,7 @@ const Client101 = ({ user }) => {
         </div>
         <div className='col-lg-3 col-md-6 py-3'>
           <div className='bg-white shadow'>
-            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791162060.jpg' />
+            <img alt='SETIAMGE' src='https://i.vimeocdn.com/video/791162060.jpg' width='100%' height='100%' />
             <div className='text-black text-center py-3'>Keto Introduction</div>
             <div className='text-center py-3'>
               <button className='btn btn-info'>
