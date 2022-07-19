@@ -21,6 +21,7 @@ import ClientFaq from './ClientFaq'
 import ClientPlan from './ClientPlan'
 import Client101 from './Client101'
 import ClientEbooks from './ClientEbooks'
+import ClientSupplements from './ClientSupplements'
 
 const Client = ({loadCartData}) => {
 
@@ -38,6 +39,7 @@ const Client = ({loadCartData}) => {
             <PrivateRoute exact path="/my-plan" component={ClientPlan} />
             <PrivateRoute exact path="/keto-101" component={Client101} />
             <PrivateRoute exact path="/ebooks" component={ClientEbooks} />
+            <PrivateRoute exact path="/supplements" component={ClientSupplements} />
             <PrivateRoute exact path="/faq" component={ClientFaq} />
             <PrivateRoute exact path="/academy" component={ClientAcademy} />
             <PrivateRoute exact path="/academy/:id" component={ClientAcademyView} />
